@@ -322,8 +322,6 @@
                     <h5 class="title">Suported By : </h5>
                     &nbsp&nbsp&nbsp&nbsp&nbsp<img style="height: 80px; width: 100px;" src="<?php echo site_url('assets/img/amcc-logo.png') ?>">
                     &nbsp&nbsp&nbsp&nbsp<img style="height: 80px; width: 180px;" src="<?php echo site_url('assets/img/amikom.png') ?>"> <br>
-                    <img style="height: 80px; width: 140px;" src="<?php echo site_url('assets/img/codepolitan.png') ?>">
-                    <img style="height: 120px; width: 180px;" src="<?php echo site_url('assets/img/firebase.png') ?>"> <br>
                 </div>
                 <!--/.Third column-->
 

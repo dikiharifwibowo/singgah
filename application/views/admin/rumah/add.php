@@ -44,19 +44,16 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                     <div class="row clearfix">
                                         <div class="col-sm-6">
                                                 <select name="prov" class="form-control show-tick" >
-                                                    <option value="c" disabled="">-- Provinsi --</option>
                                                     <option value="Jawa Timur">Jawa Timur</option>
                                                     <option value="Jawa Tengah">Jawa Tengah</option>
                                                     <option  value="Jawa Barat">Jawa Barat</option>
                                                     <option value="DI Yogyakarta">DI Yogyakarta</option>
                                                     <option value="DKI Jakarta">DKI Jakarta</option>
                                                     <option value="Banten">Banten</option>
-                                                    
                                                 </select>
                                         </div>
                                         <div class="col-sm-6">
                                                 <select name="city" class="form-control show-tick" >
-                                                    <option value="kota">Kota</option>
                                                     <option value="Surabaya">Surabaya</option>
                                                     <option value="Semarang">Semarang</option>
                                                     <option value="Jogja">Jogja</option>
@@ -144,6 +141,39 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
     <script src="<?php echo site_url('assets/admin/'); ?>js/pages/forms/editors.js"></script>
     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyAELuqtE6zJbqaAfaQdJYDnLc72LbDrhvI" type="text/javascript"></script>
     <script type="text/javascript">
+var latc,longc;
+
+document.addEventListener('DOMContentLoaded',function() {
+    document.querySelector('select[name="city"]').onchange=updateinput;
+},false);
+
+function updateinput(event){
+    
+    var city
+    if (city=='semarang') {
+        latc = -6.966667
+        longc = 110.416664
+    } else if (city=='surabaya') {
+        latc = -7.257471
+        longc = 112.752088
+    } else if (city=='bali') {
+        latc = -8.409517
+        longc = 115.188916
+    } else if (city=='bandung') {
+        latc = -6.917463
+        longc = 107.619122
+    } else if (city=='jakarta') {
+        latc = -6.186486
+        longc = 106.834091
+    } else {
+        latc = -7.797457
+        longc = 110.370697
+    }
+    return [latc,longc];
+}
+var codes = updateinput();
+var dCodes = codes[0];
+var dCodes2 = codes[1];
 
 if (GBrowserIsCompatible())
 {
@@ -151,7 +181,7 @@ map = new GMap2(document.getElementById("mapa"));
 map.disableScrollWheelZoom();
 map.addControl(new GLargeMapControl());
 map.addControl(new GMapTypeControl(3));
-map.setCenter( new GLatLng(-7.816191011422759, 110.37377268075943), 14,0);
+map.setCenter( new GLatLng(dCodes, dCodes2), 14,0);
 
 GEvent.addListener(map,'mousemove',function(point)
 {
