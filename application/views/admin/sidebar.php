@@ -19,7 +19,6 @@
                 </div>
             </div>
             <!-- #User Info -->
-            <!-- Menu -->
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
@@ -35,20 +34,79 @@
                             <span>User</span>
                         </a>
                     </li>
-                    
-                   
+
                     <li>
-                        <a href="<?php echo site_url('singgah'); ?>">
-                            <i class="material-icons">home</i>
-                            <span>Rumah Singgah</span>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">assignment</i>
+                            <span>Data Rumah Singgah</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo site_url('singgah'); ?>">
+                                    <span>Lihat Rumah Singgah</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url('singgah/add'); ?>">
+                                    <span>Tambah Rumah Singgah</span>
+                                </a>
+                            </li> 
+                        </ul>
                     </li>
-                    <li class="header">LABELS</li>
                     <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-light-blue">donut_large</i>
-                            <span>Information</span>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">assignment</i>
+                            <span>Galang-Go</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo site_url('galang'); ?>">
+                                    <span>Data Penggalangan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url('singgah/add'); ?>">
+                                    <span>Status Penggalangan</span>
+                                </a>
+                            </li> 
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">assignment</i>
+                            <span>Smile-Go</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo site_url('kegiatan'); ?>">
+                                    <span>Data Kegiatan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url('kegiatan/add'); ?>">
+                                    <span>Tambah Kegiatan</span>
+                                </a>
+                            </li> 
+                        </ul>
+                    </li>
+                    <li class="header">SMS</li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons col-light-blue">message</i>
+                            <span>Daftar SMS</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo site_url('admin/listsms'); ?>">
+                                    <span>Kirim SMS</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url('admin/listterkirim'); ?>">
+                                    <span>History SMS</span>
+                                </a>
+                            </li> 
+                        </ul>
                     </li>
                 </ul>
             </div>

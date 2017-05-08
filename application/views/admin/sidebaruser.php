@@ -47,6 +47,30 @@
                             </li>   
                         </ul>
                     </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">assignment</i>
+                            <span>Smile-Go</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo site_url('kegiatan'); ?>">
+                                    <span>History Kegiatan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url('kegiatan/add'); ?>">
+                                    <span>Tambah Kegiatan</span>
+                                </a>
+                            </li> 
+                        </ul>
+                    </li>
+                     <li class="active">
+                        <a href="<?php echo site_url('user');?>">
+                            <i class="material-icons">home</i>
+                            <span>History Donasi</span>
+                        </a>
+                    </li>
                     <li class="header">LABELS</li>
                     <li>
                         <a href="javascript:void(0);">
