@@ -50,13 +50,13 @@
                                 ?>   
                                     <tr>
                                        <td><?php echo $data['id'] ?></td>
-                                       <td><img style="width: 60px; height: 60px;" src="<?php echo site_url("assets/img/kegiatan/{$data['foto']}"); ?>"></td>
+                                       <td><img style="width: 60px; height: 60px;" src="<?php echo site_url("assets/img/donasi/{$data['foto']}"); ?>"></td>
                                        <td><?php echo $data['judul'] ?></td>
                                        <td><?php echo substr($data['deskripsi'],0,100)  ?></td>
                                        <td><?php echo $data['tanggal'] ?></td>
                                        <td>
-                                           <a href="<?php echo site_url("kegiatan/delete/{$data['id']}") ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"> <i class="material-icons" >delete</i> </a>
-                                           <a href="<?php echo site_url("kegiatan/edit/{$data['id']}") ?>"> <i class="material-icons" >edit</i> </a>
+                                           <a href="<?php echo site_url("donasi/delete/{$data['id']}") ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"> <i class="material-icons" >delete</i> </a>
+                                           <a href="<?php echo site_url("donasi/edit/{$data['id']}") ?>"> <i class="material-icons" >edit</i> </a>
                                        </td>
                                     </tr>
                                 <?php

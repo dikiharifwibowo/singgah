@@ -1,6 +1,6 @@
 <?php 
 
-class M_Kegiatan extends CI_Model {
+class M_donasi extends CI_Model {
 
 	
 	/*public function index_model($wher="") {
@@ -29,18 +29,18 @@ class M_Kegiatan extends CI_Model {
 
 	public function list() {
 		$this->db->select('*');
-		$this->db->from('kegiatan'); //8 utk limit
+		$this->db->from('donasi'); //8 utk limit
 		$this->db->order_by('id','desc');
 		$query = $this->db->get();
 		return $query->result_array(); 
 	} 
 
 
-	function kodekegiatan(){
-		$this->db->select('RIGHT(kegiatan.id,3) as kode', FALSE);
+	function kodedonasi(){
+		$this->db->select('RIGHT(donasi.id,3) as kode', FALSE);
 		$this->db->order_by('id','DESC');
 		$this->db->limit(1);
-		$query = $this->db->get('kegiatan');
+		$query = $this->db->get('donasi');
 		//cek dulu apakah ada sudah ada kode di tabel.
 		if($query->num_rows() <> 0){
 			//jika kode ternyata sudah ada.
@@ -51,7 +51,7 @@ class M_Kegiatan extends CI_Model {
 			$kode = 1;
 		}
 		$kodemax = str_pad($kode, 3, "0", STR_PAD_LEFT);
-		$kodejadi = "KG".$kodemax;
+		$kodejadi = "DN".$kodemax;
 		return $kodejadi;
 	}
 

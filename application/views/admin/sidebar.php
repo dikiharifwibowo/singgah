@@ -78,13 +78,13 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="<?php echo site_url('kegiatan'); ?>">
-                                    <span>Data Kegiatan</span>
+                                <a href="<?php echo site_url('donasi'); ?>">
+                                    <span>Lihat</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo site_url('kegiatan/add'); ?>">
-                                    <span>Tambah Kegiatan</span>
+                                <a href="<?php echo site_url('donasi/add'); ?>">
+                                    <span>Tambah </span>
                                 </a>
                             </li> 
                         </ul>
