@@ -29,7 +29,7 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                 </div>
                                  <div class="form-group form-float">
                                     <div class="form-line">      
-                                       <input type="text" readonly="" class="form-control" value="<?php echo $id ?>" name="id" required >
+                                       <input type="text" class="form-control" value="<?php echo $id ?>" name="id" required readonly >
                                     </div>
                                 </div>
                                  <div class="form-group form-float">
@@ -39,16 +39,40 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                     <div class="help-info">foto donasi</div>
                                 </div>
                                 <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" value="<?php echo $judul ?>" class="form-control" name="judul" required placeholder="judul">
+                                    <div class="form-line">      
+                                       <input type="text" class="form-control" name="youtube" value="<?php echo $youtube ?>" placeholder="http://www.youtube.com/embed/dP15zlyra3c">
                                     </div>
-                                    <div class="help-info">Nama donasi</div>
+                                    <div class="help-info">Optional : Link Youtube</div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">      
-                                        <textarea id="ckeditor" name="deskripsi" type="text" required="" class="form-control" placeholder="deskripsi" ><?php echo $deskripsi ?></textarea>
+                                       <input type="number" class="form-control" name="targetdana" required value="<?php echo $targetdana ?>" placeholder="500.000.000" required="">
                                     </div>
-                                    <div class="help-info">deskripsi donasi</div>
+                                    <div class="help-info">Target Dana Terkumpul</div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">      
+                                       <input type="date" class="form-control" name="dateline" value="<?php echo $dateline ?>" required >
+                                    </div>
+                                    <div class="help-info">DateLine dana terkumpul</div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="<?php echo $judul ?>" name="judul" required placeholder="Example : Galang dana untuk adik Fitri">
+                                    </div>
+                                    <div class="help-info">Nama donasi</div>
+                                </div>
+                              <!--   <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="datetime-local" class="form-control" name="tanggal" required placeholder="tanggal donasi">
+                                    </div>
+                                    <div class="help-info">Tanggal donasi</div>
+                                </div> -->
+                                <div class="form-group form-float">
+                                    <div class="form-line">      
+                                        <textarea id="ckeditor" name="deskripsi" type="text" required="" class="form-control" placeholder="deskripsi donasi"><?php echo $deskripsi ?>"</textarea>
+                                    </div>
+                                    <div class="help-info">Deskripsi donasi</div>
                                 </div>
                             
                               <!--   <button class="btn btn-primary waves-effect" type="submit" name="simpa">SUBMIT</button> -->

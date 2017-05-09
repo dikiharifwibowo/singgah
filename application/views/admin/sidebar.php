@@ -56,17 +56,17 @@
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
-                            <span>Galang-Go</span>
+                            <span>Smile-Go</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="<?php echo site_url('galang'); ?>">
-                                    <span>Data Penggalangan</span>
+                                <a href="<?php echo site_url('kegiatan'); ?>">
+                                    <span>Data Kegiatan</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo site_url('singgah/add'); ?>">
-                                    <span>Status Penggalangan</span>
+                                <a href="<?php echo site_url('kegiatan/add'); ?>">
+                                    <span>Tambah Kegiatan</span>
                                 </a>
                             </li> 
                         </ul>
@@ -74,17 +74,17 @@
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
-                            <span>Smile-Go</span>
+                            <span>Galang-Go</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
                                 <a href="<?php echo site_url('donasi'); ?>">
-                                    <span>Lihat</span>
+                                    <span>Data Penggalangan</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?php echo site_url('donasi/add'); ?>">
-                                    <span>Tambah </span>
+                                    <span>Tambah Galang dana</span>
                                 </a>
                             </li> 
                         </ul>

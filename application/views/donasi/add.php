@@ -39,8 +39,26 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                     <div class="help-info">foto donasi</div>
                                 </div>
                                 <div class="form-group form-float">
+                                    <div class="form-line">      
+                                       <input type="text" class="form-control" name="youtube" placeholder="http://www.youtube.com/embed/dP15zlyra3c">
+                                    </div>
+                                    <div class="help-info">Optional : Link Youtube</div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">      
+                                       <input type="number" class="form-control" name="targetdana" required placeholder="500.000.000" required="">
+                                    </div>
+                                    <div class="help-info">Target Dana Terkumpul</div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">      
+                                       <input type="date" class="form-control" name="dateline" required >
+                                    </div>
+                                    <div class="help-info">DateLine dana terkumpul</div>
+                                </div>
+                                <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="judul" required placeholder="judul">
+                                        <input type="text" class="form-control" name="judul" required placeholder="Example : Galang dana untuk adik Fitri">
                                     </div>
                                     <div class="help-info">Nama donasi</div>
                                 </div>

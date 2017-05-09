@@ -30,10 +30,8 @@
 
     <!--Content-->
     <div class="container">
-
-    <br>
-    <br>
-    
+    <h4 align="center"><?php echo $datas->judul;?></h4>
+    <br> 
         <div class="row">
             <!--Second columnn-->
             <div class="col-lg-12">
@@ -41,24 +39,25 @@
                 <div class="card">
                     <!--Card image-->
                     <div class="row">
-                        <div class="col-lg-5">
+                        <div class="col-lg-6">
+                        <p class="card-text" style="margin: 9px;">
+                            <iframe width="520" height="300" src="http://www.youtube.com/embed/dP15zlyra3c?html5=1"></iframe>
+                        </p>
+                        <p class="card-text" style="margin: 9px;">
+                               "<?php echo $datas->deskripsi ?>
+                            </p>
+                        </div>
+                        <div class="col-lg-6" style="margin-top: 20px;">
                             <div class="view overlay hm-white-slight">
                                 <img style="width: 500px; height: 300px;" src="<?php echo site_url("assets/img/donasi/$datas->foto"); ?>" class="img-fluid" alt="">     
                             </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div id="map" style="height: 300px; width: 620px;"></div>      
-                        </div>
-                        <hr><br>
-                        <div class="col-lg-12" style="margin-top: 20px;">
                             <p class="card-text" style="margin: 9px;">
-                                <?php echo $datas->deskripsi; ?>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                <br>
+                                <h4><b> Rp. <?php echo $datas->targetdana ?> </b></h4><br>
+                                <strong>terkumpul dari target <b>Rp. <?php echo $datas->terkumpul ?> </b></strong>
+                                <br>Galang dana sebelum <b><?php echo $datas->dateline ?> </b>
+                                <br><a href="<?php echo site_url("welcome/detail/"); ?>" class="btn btn-info">KIRIM DONASI</a>
+                                <br><a href="<?php echo site_url("welcome/detail/"); ?>" class="btn btn-info">SHARE FACEBOOK</a>
                             </p>
                         </div>
                         

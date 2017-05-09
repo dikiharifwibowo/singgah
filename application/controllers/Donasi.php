@@ -40,6 +40,9 @@ class Donasi extends CI_Controller {
         $judul = $_POST['judul'];
         $deskripsi = $_POST['deskripsi'];
         $tanggal = date('Y-m-d');
+        $dateline = $_POST['dateline'];
+        $targetdana = $_POST['targetdana'];
+        $youtube = $_POST['youtube'];  
         if (isset($_POST['simpan'])){
             $fileName = $_FILES['foto']['name'];
         }
@@ -61,8 +64,12 @@ class Donasi extends CI_Controller {
             'users' => $users,  
             'judul' => $judul,
             'deskripsi' => $deskripsi,
+            'targetdana' => $targetdana,
             'tanggal' => $tanggal, 
-            'foto' => $fileName                          
+            'dateline' => $dateline,
+            'foto' => $fileName,
+            'youtube' => $youtube,
+            'status' => 'terima'                        
         );
         $tampung = $this->m_donasi->insert('donasi',$data_insert); //ingat prinsip insert/adddata
         if ($tampung>=1) {
@@ -90,7 +97,11 @@ class Donasi extends CI_Controller {
             'users' =>$tampung->users,  
             'judul' => $tampung->judul,
             'deskripsi' => $tampung->deskripsi,
-            'foto' => $tampung->foto 
+            'foto' => $tampung->foto,
+            'targetdana' => $tampung->targetdana,
+            'dateline' => $tampung->dateline,
+            'targetdana' => $tampung->targetdana,
+            'youtube' => $tampung->youtube  
         );
         $this->load->view('admin/header','refresh');
         $this->load->view('admin/nav','refresh');
@@ -105,6 +116,9 @@ class Donasi extends CI_Controller {
         $judul = $_POST['judul'];
         $deskripsi = $_POST['deskripsi'];
         $tanggal = date('Y-m-d');
+        $dateline = $_POST['dateline'];
+        $targetdana = $_POST['targetdana'];
+        $youtube = $_POST['youtube'];
 
         if (isset($_POST['simpan'])){
             $fileName = $_FILES['foto']['name'];
@@ -127,8 +141,12 @@ class Donasi extends CI_Controller {
             'users' => $users,  
             'judul' => $judul,
             'deskripsi' => $deskripsi,
-            'tanggal' => $tanggal,
-            'foto' => $fileName                   
+            'targetdana' => $targetdana,
+            'tanggal' => $tanggal, 
+            'dateline' => $dateline,
+            'foto' => $fileName,
+            'youtube' => $youtube,
+            'status' => 'terima'                   
         );
         $where = array ('id' => $id);
         $tampung = $this->m_donasi->update('donasi',$data_update,$where); //ingat prinsip insert/adddata
