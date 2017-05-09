@@ -52,7 +52,7 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">      
-                                        <textarea id="ckeditor" name="deskripsi" type="text" required="" class="form-control" placeholder="deskripsi" value="<?php echo $deskripsi ?>" ></textarea>
+                                        <textarea id="ckeditor" name="deskripsi" type="text" required="" class="form-control" placeholder="deskripsi" ><?php echo $deskripsi ?></textarea>
                                     </div>
                                     <div class="help-info">deskripsi kegiatan</div>
                                 </div>

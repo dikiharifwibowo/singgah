@@ -597,12 +597,13 @@
     <h2 align="center">BANTU MEREKA</h2>
     <hr>
         <div class="row">
-            <div class="col-lg-3">
+            <?php foreach ($donasi as $data): ?>
+            <div class="col-lg-3" >
                 <div class="card">
                     <!--Card image-->
                     <div class="view overlay hm-white-slight">
 
-                        <img style="width: 260px; height: 200px;" src="<?php echo site_url("assets/img/donasi/risma.jpg"); ?>" class="img-fluid" alt="">
+                        <img style="width: 260px; height: 200px;" src="<?php echo site_url("assets/img/donasi/{$data['foto']}"); ?>" class="img-fluid" alt="">
 
                         <a href="#">
 
@@ -616,98 +617,15 @@
                     <div class="card-block" style="height: 185px;">
                         <!--Text-->
 
-                        <p class="card-text">Risma yang duduk di kelas 6 SD sedang menjalani pengobatan Kanker.</p>
+                        <p class="card-text"><?php echo substr($data['deskripsi'],0,50);  ?></p>
 
-                        <a href="<?php echo site_url("welcome/detail/{$data['id']}"); ?>" class="btn btn-info">DONASI</a>
-
-                    </div>
-                    <!--/.Card content-->
-                </div>
-            </div>
-
-            <div class="col-lg-3">
-                <div class="card">
-                    <!--Card image-->
-                    <div class="view overlay hm-white-slight">
-
-                        <img style="width: 260px; height: 200px;" src="<?php echo site_url("assets/img/donasi/kursi_roda.jpg"); ?>" class="img-fluid" alt="">
-
-                        <a href="#">
-
-                            <div class="mask"></div>
-
-                        </a>
-
-                    </div>
-                    <!--/.Card image-->
-                    <!--Card content-->
-                    <div class="card-block" style="height: 185px;">
-                        <!--Text-->
-
-                        <p class="card-text">Bantu meraka berjalan, bantu mereka dengan kursi roda</p>
-
-                        <a href="<?php echo site_url("welcome/detail/{$data['id']}"); ?>" class="btn btn-info">DONASI</a>
+                        <a href="<?php echo site_url("welcome/donasidet/{$data['id']}"); ?>" class="btn btn-info">DONASI</a>
 
                     </div>
                     <!--/.Card content-->
                 </div>
-            </div>
-
-            <div class="col-lg-3">
-                <div class="card">
-                    <!--Card image-->
-                    <div class="view overlay hm-white-slight">
-
-                        <img style="width: 260px; height: 200px;" src="<?php echo site_url("assets/img/donasi/kanker_darah.jpg"); ?>" class="img-fluid" alt="">
-
-                        <a href="#">
-
-                            <div class="mask"></div>
-
-                        </a>
-
-                    </div>
-                    <!--/.Card image-->
-                    <!--Card content-->
-                    <div class="card-block" style="height: 185px;">
-                        <!--Text-->
-
-                        <p class="card-text">putra dari sukabumi terkana kanker darah, bantu keluarga mereka berobat</p>
-
-                        <a href="<?php echo site_url("welcome/detail/{$data['id']}"); ?>" class="btn btn-info">DONASI</a>
-
-                    </div>
-                    <!--/.Card content-->
-                </div>
-            </div>
-
-            <div class="col-lg-3">
-                <div class="card">
-                    <!--Card image-->
-                    <div class="view overlay hm-white-slight">
-
-                        <img style="width: 260px; height: 200px;" src="<?php echo site_url("assets/img/donasi/boneka.jpg"); ?>" class="img-fluid" alt="">
-
-                        <a href="#">
-
-                            <div class="mask"></div>
-
-                        </a>
-
-                    </div>
-                    <!--/.Card image-->
-                    <!--Card content-->
-                    <div class="card-block" style="height: 185px;">
-                        <!--Text-->
-
-                        <p class="card-text">Hibur pipit dan anak-anaknya lainnya dengan boneka</p>
-
-                        <a href="<?php echo site_url("welcome/detail/{$data['id']}"); ?>" class="btn btn-info">DONASI</a>
-
-                    </div>
-                    <!--/.Card content-->
-                </div>
-            </div>
+            </div>  
+            <?php endforeach ?>          
         </div>
     </div>
 
@@ -717,12 +635,13 @@
     <h2 align="center">HIBUR MEREKA</h2>
     <hr>
         <div class="row">
+            <?php foreach ($kegiatan as $data): ?>
             <div class="col-lg-3">
                 <div class="card">
                     <!--Card image-->
                     <div class="view overlay hm-white-slight">
 
-                        <img style="width: 260px; height: 200px;" src="<?php echo site_url("assets/img/Kegiatan/langkah_kasih.jpg"); ?>" class="img-fluid" alt="">
+                        <img style="width: 260px; height: 200px;" src="<?php echo site_url("assets/img/kegiatan/{$data['foto']}"); ?>" class="img-fluid" alt="">
 
                         <a href="#">
 
@@ -741,7 +660,7 @@
 
                         <!--Text-->
 
-                        <p class="card-text">Langkah Kasih - Sewindu Yayasan Kasih Anak Kanker Indonesia</p>
+                        <p class="card-text"><?php echo substr($data['deskripsi'],0,50);  ?></p>
 
                         <a href="<?php echo site_url("welcome/detail/{$data['id']}"); ?>" class="btn btn-info">IKUTI</a>
 
@@ -749,39 +668,7 @@
                     <!--/.Card content-->
                 </div>
             </div>
-
-            <div class="col-lg-3">
-                <div class="card">
-                    <!--Card image-->
-                    <div class="view overlay hm-white-slight">
-
-                        <img style="width: 260px; height: 200px;" src="<?php echo site_url("assets/img/Kegiatan/berani_gundul.jpg"); ?>" class="img-fluid" alt="">
-
-                        <a href="#">
-
-                            <div class="mask"></div>
-
-                        </a>
-
-                    </div>
-                    <!--/.Card image-->
-                    <!--Card content-->
-                    <div class="card-block" style="height: 185px;">
-
-                        <!--Title-->
-
-                        <h6 class="card-title">Berani Gundul</h6>
-
-                        <!--Text-->
-
-                        <p class="card-text">Berani Gundul Metamorfosis YKAKI Jakarta 2017</p>
-
-                        <a href="<?php echo site_url("welcome/detail/{$data['id']}"); ?>" class="btn btn-info">IKUTI</a>
-
-                    </div>
-                    <!--/.Card content-->
-                </div>
-            </div>
+            <?php endforeach ?>
         </div>
     </div>
 

@@ -3,7 +3,7 @@
     <!--Navbar-->
     <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
         <div class="container">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler navbar-toggler-right" type="button" datas-toggle="collapse" datas-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="<?php echo site_url('welcome');?>">
@@ -30,10 +30,7 @@
 
     <!--Content-->
     <div class="container">
-    <h2 align="center">
-        <?php echo $details->nama; ?>
-    </h2>
-    <h4 align="center"><?php echo $details->alamat;?></h4>
+
     <br>
     <br>
     
@@ -46,29 +43,25 @@
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="view overlay hm-white-slight">
-                                <img style="width: 500px; height: 300px;" src="<?php echo site_url("assets/img/rumah/$details->foto"); ?>" class="img-fluid" alt="">     
+                                <img style="width: 500px; height: 300px;" src="<?php echo site_url("assets/img/donasi/$datas->foto"); ?>" class="img-fluid" alt="">     
                             </div>
                         </div>
                         <div class="col-lg-7">
                             <div id="map" style="height: 300px; width: 620px;"></div>      
                         </div>
                         <hr><br>
-                        <div class="col-lg-8" style="margin-top: 20px;">
+                        <div class="col-lg-12" style="margin-top: 20px;">
                             <p class="card-text" style="margin: 9px;">
-                                <?php echo $details->isi; ?>
+                                <?php echo $datas->deskripsi; ?>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             </p>
                         </div>
-                        <div class="col-lg-4" style="margin-top: 20px;">
-                            <b>Provinsi : <?php echo $details->provinsi; ?></b><br>
-                            <b>Kota : <?php echo $details->kota; ?></b><br><br>
-
-                            <b>Telepon : <?php echo $details->telepon; ?></b><br>
-                            <b>rating : <?php echo $details->rating; ?></b><br>
-                            <b>Terakhir Update : <?php echo $details->tgl_update; ?></b><br><br>
-                            <p align="center">
-                                "Data dan syarat bisa berubah sewaktu-waktu"
-                            </p>
-                        </div>
+                        
                     </div>
                     <!--/.Card image-->
 
@@ -79,25 +72,4 @@
         </div>
     <!--Footer-->
     </div>
- <script>
-      function initMap() {
-        var myLatLng = {lat: <?php echo $details->latitude; ?>, lng: <?php echo $details->longitude; ?>};
 
-        // Create a map object and specify the DOM element for display.
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: myLatLng,
-          scrollwheel: false,
-          zoom: 13
-        });
-
-        // Create a marker and set its position.
-        var marker = new google.maps.Marker({
-          map: map,
-          position: myLatLng,
-          title: '<?php echo $details->nama; ?>'
-        });
-      }
-
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAELuqtE6zJbqaAfaQdJYDnLc72LbDrhvI&callback=initMap"
-        async defer></script>

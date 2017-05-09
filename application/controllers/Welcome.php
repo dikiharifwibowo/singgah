@@ -7,10 +7,15 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('m_rumah');
+		$this->load->model('m_donasi');
+		$this->load->model('m_kegiatan');
+			
 	}
 	public function index()
 	{	
 		$this->data['rec_rumah'] =  $this->m_rumah->rec_rumah();
+		$this->data['donasi'] =  $this->m_donasi->rec_donasi();
+		$this->data['kegiatan'] =  $this->m_kegiatan->rec_kegiatan();
 		$this->load->view('index',$this->data,'refresh');
 	}
 	public function detail($id) {
@@ -51,6 +56,13 @@ class Welcome extends CI_Controller {
 		$this->data['search'] = $this->m_rumah->search($nama);
 		$this->load->view('header');	
 		$this->load->view('search',$this->data,'refresh');	
+		$this->load->view('footer');
+	}
+
+	public function donasidet($id) {
+		$this->data['datas'] = $this->m_donasi->detail($id);
+		$this->load->view('header');	
+		$this->load->view('detaildonasi',$this->data,'refresh');	
 		$this->load->view('footer');
 	}
 }

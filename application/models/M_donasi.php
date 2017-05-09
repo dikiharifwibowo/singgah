@@ -55,4 +55,23 @@ class M_donasi extends CI_Model {
 		return $kodejadi;
 	}
 
+	public function rec_donasi($wher="terima") {
+		$this->db->select('*');
+		$this->db->from('donasi'); //8 utk limit
+		$this->db->limit(4);
+		$this->db->where('status', $wher);
+		$this->db->order_by('id','desc');
+		//$query = $this->db->get('contact');
+		//$tampung = $this->db->query('SELECT * FROM contact ORDER BY No_masuk DESC');
+		$query = $this->db->get();
+		return $query->result_array(); 
+	} 
+
+	public function detail($wher="") {
+		$this->db->select('*');
+		$this->db->from('donasi');
+		$this->db->where('id', $wher);
+		$query = $this->db->get();
+		return $query->row(); 
+	}
 }

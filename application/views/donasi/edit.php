@@ -16,10 +16,10 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>TAMBAH donasi</h2>
+                            <h2>EDIT donasi</h2>
                         </div>
                         <div class="body">
-                            <form action="<?php echo site_url('donasi/doadd'); ?>" method="POST" enctype="multipart/form-data">
+                            <form action="<?php echo site_url('donasi/doedit'); ?>" method="POST" enctype="multipart/form-data">
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="users" required value="<?php echo $_SESSION['identity'] ?>" readonly>
@@ -29,7 +29,7 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                 </div>
                                  <div class="form-group form-float">
                                     <div class="form-line">      
-                                       <input type="text" class="form-control" value="<?php echo $kode ?>" name="id" required readonly >
+                                       <input type="text" readonly="" class="form-control" value="<?php echo $id ?>" name="id" required >
                                     </div>
                                 </div>
                                  <div class="form-group form-float">
@@ -40,21 +40,15 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="judul" required placeholder="judul">
+                                        <input type="text" value="<?php echo $judul ?>" class="form-control" name="judul" required placeholder="judul">
                                     </div>
                                     <div class="help-info">Nama donasi</div>
                                 </div>
-                              <!--   <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="datetime-local" class="form-control" name="tanggal" required placeholder="tanggal donasi">
-                                    </div>
-                                    <div class="help-info">Tanggal donasi</div>
-                                </div> -->
                                 <div class="form-group form-float">
                                     <div class="form-line">      
-                                        <textarea id="ckeditor" name="deskripsi" type="text" required="" class="form-control" placeholder="deskripsi donasi"></textarea>
+                                        <textarea id="ckeditor" name="deskripsi" type="text" required="" class="form-control" placeholder="deskripsi" ><?php echo $deskripsi ?></textarea>
                                     </div>
-                                    <div class="help-info">Deskripsi donasi</div>
+                                    <div class="help-info">deskripsi donasi</div>
                                 </div>
                             
                               <!--   <button class="btn btn-primary waves-effect" type="submit" name="simpa">SUBMIT</button> -->

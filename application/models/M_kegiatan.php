@@ -55,4 +55,16 @@ class M_Kegiatan extends CI_Model {
 		return $kodejadi;
 	}
 
+	public function rec_kegiatan($wher="terima") {
+		$this->db->select('*');
+		$this->db->from('kegiatan'); //8 utk limit
+		$this->db->limit(4);
+		$this->db->where('status', $wher);
+		$this->db->order_by('id','desc');
+		//$query = $this->db->get('contact');
+		//$tampung = $this->db->query('SELECT * FROM contact ORDER BY No_masuk DESC');
+		$query = $this->db->get();
+		return $query->result_array(); 
+	} 
+
 }
