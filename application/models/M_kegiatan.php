@@ -67,4 +67,20 @@ class M_Kegiatan extends CI_Model {
 		return $query->result_array(); 
 	} 
 
+	public function detail($wher="") {
+		$this->db->select('*');
+		$this->db->from('kegiatan');
+		$this->db->where('id', $wher);
+		$query = $this->db->get();
+		return $query->row(); 
+	}
+
+	public function listkegiatanuser($wher="") {
+		$this->db->select('*');
+		$this->db->from('kegiatan'); 
+		$this->db->where('users', $wher);
+		$this->db->order_by('id','desc');
+		$query = $this->db->get();
+		return $query->result_array(); 
+	} 
 }

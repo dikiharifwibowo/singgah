@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                DATA BERITA
+                                DATA KEGIATAN
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">

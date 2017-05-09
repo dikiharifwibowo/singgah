@@ -16,14 +16,14 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>TAMBAH MITRA RUMAH SINGGAH</h2>
+                            <h2>EDIT MITRA RUMAH SINGGAH</h2>
                         </div>
                         <div class="body">
-                            <form action="<?php echo site_url('singgah/doadd'); ?>" method="POST" enctype="multipart/form-data">
+                            <form action="<?php echo site_url('user/doeditrumah'); ?>" method="POST" enctype="multipart/form-data">
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="user" required value="<?php echo $_SESSION['identity'] ?>" readonly>
-                                     
+                                        <input type="hidden" name="id" value="<?php echo $id ?>">
                                     </div>
                                     <div class="help-info">It's Yours. Read Only</div>
                                 </div>
@@ -35,7 +35,7 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="rumah" required placeholder="Nama rumah">
+                                        <input type="text" class="form-control" value="<?php echo $nama ?>" name="rumah" required placeholder="Nama rumah">
                                     </div>
                                     <div class="help-info">Example : Rumah Singgah YKPI</div>
                                 </div>
@@ -44,16 +44,19 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                     <div class="row clearfix">
                                         <div class="col-sm-6">
                                                 <select name="prov" class="form-control show-tick" >
+                                                    <option value="c" disabled="">-- Provinsi --</option>
                                                     <option value="Jawa Timur">Jawa Timur</option>
                                                     <option value="Jawa Tengah">Jawa Tengah</option>
                                                     <option  value="Jawa Barat">Jawa Barat</option>
                                                     <option value="DI Yogyakarta">DI Yogyakarta</option>
                                                     <option value="DKI Jakarta">DKI Jakarta</option>
                                                     <option value="Banten">Banten</option>
+                                                    
                                                 </select>
                                         </div>
                                         <div class="col-sm-6">
                                                 <select name="city" class="form-control show-tick" >
+                                                    <option value="kota">Kota</option>
                                                     <option value="Surabaya">Surabaya</option>
                                                     <option value="Semarang">Semarang</option>
                                                     <option value="Jogja">Jogja</option>
@@ -68,14 +71,14 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="alamat" required >
+                                        <input type="text" value="<?php echo $alamat ?>" class="form-control" name="alamat" required >
                                         <label class="form-label">alamat</label>
                                     </div>
                                     <div class="help-info">Ex: Jln Sudirman</div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="number" class="form-control" name="telepon" required >
+                                        <input type="number" value="<?php echo $telepon ?>" class="form-control" name="telepon" required >
                                         <label class="form-label">No Telepon</label>
                                     </div>
                                     <div class="help-info">Ex: 082328722687</div>
@@ -99,7 +102,7 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">      
-                                        <textarea id="ckeditor" name="isi" type="text" required="" class="form-control" placeholder="isi"></textarea>
+                                        <textarea id="ckeditor" name="isi" type="text" required="" class="form-control" placeholder="isi"><?php echo $isi ?></textarea>
                                     </div>
                                     <div class="help-info">Isi</div>
                                 </div>
@@ -115,7 +118,7 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                         <div>Longitude: <span id="lngspan"></span></div>
                                         <div>Lat Lng: <span id="latlong"></span></div>
                                         <div>Lat Lng on click:
-                                        <input type="text" name="latitude" id="latclicked" style="width:150px; border:1px inset gray;">&nbsp <input name="longitude" type="text" id="longclicked" style="width:150px; border:1px inset gray;"></span></div>
+                                        <input type="text" name="latitude" value="<?php echo $latitude ?>" id="latclicked" style="width:150px; border:1px inset gray;">&nbsp <input name="longitude" value="<?php echo $longitude ?>" type="text" id="longclicked" style="width:150px; border:1px inset gray;"></span></div>
                                         </div>
                                         </div>
 
@@ -126,7 +129,7 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
 
 
                               <!--   <button class="btn btn-primary waves-effect" type="submit" name="simpa">SUBMIT</button> -->
-                              <input type="submit" name="simpan" class="btn btn-primary">
+                              <input type="submit" name="simpan" class="btn btn-primary waves-effect">
                             </form>
                         </div>
                     </div>
@@ -141,39 +144,6 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
     <script src="<?php echo site_url('assets/admin/'); ?>js/pages/forms/editors.js"></script>
     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyAELuqtE6zJbqaAfaQdJYDnLc72LbDrhvI" type="text/javascript"></script>
     <script type="text/javascript">
-var latc,longc;
-
-document.addEventListener('DOMContentLoaded',function() {
-    document.querySelector('select[name="city"]').onchange=updateinput;
-},false);
-
-function updateinput(event){
-    
-    var city
-    if (city=='semarang') {
-        latc = -6.966667
-        longc = 110.416664
-    } else if (city=='surabaya') {
-        latc = -7.257471
-        longc = 112.752088
-    } else if (city=='bali') {
-        latc = -8.409517
-        longc = 115.188916
-    } else if (city=='bandung') {
-        latc = -6.917463
-        longc = 107.619122
-    } else if (city=='jakarta') {
-        latc = -6.186486
-        longc = 106.834091
-    } else {
-        latc = -7.797457
-        longc = 110.370697
-    }
-    return [latc,longc];
-}
-var codes = updateinput();
-var dCodes = codes[0];
-var dCodes2 = codes[1];
 
 if (GBrowserIsCompatible())
 {
@@ -181,7 +151,7 @@ map = new GMap2(document.getElementById("mapa"));
 map.disableScrollWheelZoom();
 map.addControl(new GLargeMapControl());
 map.addControl(new GMapTypeControl(3));
-map.setCenter( new GLatLng(dCodes, dCodes2), 14,0);
+map.setCenter( new GLatLng(-7.816191011422759, 110.37377268075943), 14,0);
 
 GEvent.addListener(map,'mousemove',function(point)
 {

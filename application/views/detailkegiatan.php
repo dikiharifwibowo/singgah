@@ -41,22 +41,21 @@
                     <div class="row">
                         <div class="col-lg-7">
                         <p class="card-text" style="margin: 9px;">
-                            <iframe width="100%" height="350" src="http://www.youtube.com/embed/dP15zlyra3c?html5=1"></iframe>
+                            <div id="map" style="height: 300px; width: 620px;"></div>   
                         </p>
                         <p class="card-text" style="margin: 9px;">
                                "<?php echo $datas->deskripsi ?>
                             </p>
                         </div>
-                        <div class="col-lg-5" style="margin-top: 20px;">
+                        <div class="col-lg-5" style="margin-top: 2px;">
                             <div class="view overlay hm-white-slight">
-                                <img style="width: 500px; height: 300px;" src="<?php echo site_url("assets/img/donasi/$datas->foto"); ?>" class="img-fluid" alt="">     
+                                <img style="width: 500px; height: 300px;" src="<?php echo site_url("assets/img/kegiatan/$datas->foto"); ?>" class="img-fluid" alt="">     
                             </div>
                             <p class="card-text" style="margin: 9px;">
                                 <br>
-                                <h4><b> Rp. <?php echo $datas->targetdana ?> </b></h4><br>
-                                <strong>terkumpul dari target <b>Rp. <?php echo $datas->terkumpul ?> </b></strong>
-                                <br>Galang dana sebelum <b><?php echo $datas->dateline ?> </b>
-                                <br><a href="<?php echo site_url("user/kirimdonasi/$datas->id"); ?>" class="btn btn-info">KIRIM DONASI</a>
+                                <strong>Lokasi Alamat Kegiatan <b><?php echo $datas->lokasi ?> </b></strong>
+                                <br>Tanggal Kegiatan <b><?php echo $datas->tanggal ?> </b>
+                                <br><a href="<?php echo site_url("welcome/detail/"); ?>" class="btn btn-info">KIRIM KEGIATAN</a>
                                 <br><a href="<?php echo site_url("welcome/detail/"); ?>" class="btn btn-info">SHARE FACEBOOK</a>
                             </p>
                         </div>
@@ -72,3 +71,25 @@
     <!--Footer-->
     </div>
 
+ <script>
+      function initMap() {
+        var myLatLng = {lat: <?php echo $datas->latitude; ?>, lng: <?php echo $datas->longitude; ?>};
+
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: myLatLng,
+          scrollwheel: false,
+          zoom: 13
+        });
+
+        // Create a marker and set its position.
+        var marker = new google.maps.Marker({
+          map: map,
+          position: myLatLng,
+          title: '<?php echo $datas->judul; ?>'
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAELuqtE6zJbqaAfaQdJYDnLc72LbDrhvI&callback=initMap"
+        async defer></script>

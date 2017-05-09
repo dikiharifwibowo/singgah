@@ -38,7 +38,11 @@ class Kegiatan extends CI_Controller {
         $users = $this->ion_auth->get_user_id();
         $judul = $_POST['judul'];
         $deskripsi = $_POST['deskripsi'];
+        $lokasi = $_POST['lokasi'];
+        $latitude = $_POST['latitude'];
+        $longitude = $_POST['longitude'];
         $tanggal = $_POST['tanggal'];
+        
         if (isset($_POST['simpan'])){
             $fileName = $_FILES['foto']['name'];
         }
@@ -60,8 +64,12 @@ class Kegiatan extends CI_Controller {
             'users' => $users,  
             'judul' => $judul,
             'deskripsi' => $deskripsi,
+            'lokasi' => $lokasi,
+            'latitude' => $latitude,
+            'longitude' => $longitude,
             'tanggal' => $tanggal, 
-            'foto' => $fileName                          
+            'foto' => $fileName,
+            'status' => 'terima'                        
         );
         $tampung = $this->m_kegiatan->insert('kegiatan',$data_insert); //ingat prinsip insert/adddata
         if ($tampung>=1) {
@@ -90,7 +98,10 @@ class Kegiatan extends CI_Controller {
             'judul' => $tampung->judul,
             'deskripsi' => $tampung->deskripsi,
             'tanggal' => $tampung->tanggal,
-            'foto' => $tampung->foto 
+            'foto' => $tampung->foto,
+            'lokasi' => $tampung->lokasi,
+            'latitude' => $tampung->latitude,
+            'longitude' => $tampung->longitude
         );
         $this->load->view('admin/header','refresh');
         $this->load->view('admin/nav','refresh');
@@ -105,6 +116,9 @@ class Kegiatan extends CI_Controller {
         $judul = $_POST['judul'];
         $deskripsi = $_POST['deskripsi'];
         $tanggal = $_POST['tanggal'];
+        $lokasi = $_POST['lokasi'];
+        $latitude = $_POST['latitude'];
+        $longitude = $_POST['longitude'];
 
         if (isset($_POST['simpan'])){
             $fileName = $_FILES['foto']['name'];
@@ -127,8 +141,12 @@ class Kegiatan extends CI_Controller {
             'users' => $users,  
             'judul' => $judul,
             'deskripsi' => $deskripsi,
+            'lokasi' => $lokasi,
+            'latitude' => $latitude,
+            'longitude' => $longitude,
             'tanggal' => $tanggal,
-            'foto' => $fileName                   
+            'foto' => $fileName,
+            'status' => 'terima'                  
         );
         $where = array ('id' => $id);
         $tampung = $this->m_kegiatan->update('kegiatan',$data_update,$where); //ingat prinsip insert/adddata

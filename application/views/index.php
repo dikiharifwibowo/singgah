@@ -656,13 +656,13 @@
 
                         <!--Title-->
 
-                        <h6 class="card-title">Langkah Kasih</h6>
+                        <h6 class="card-title"><?php echo $data['judul']; ?></h6>
 
                         <!--Text-->
 
                         <p class="card-text"><?php echo substr($data['deskripsi'],0,50);  ?></p>
 
-                        <a href="<?php echo site_url("welcome/detail/{$data['id']}"); ?>" class="btn btn-info">IKUTI</a>
+                        <a href="<?php echo site_url("welcome/kegiatandet/{$data['id']}"); ?>" class="btn btn-info">IKUTI</a>
 
                     </div>
                     <!--/.Card content-->

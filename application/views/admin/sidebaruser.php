@@ -54,22 +54,29 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="<?php echo site_url('kegiatan'); ?>">
+                                <a href="<?php echo site_url('user/lihatkegiatan'); ?>">
                                     <span>History Kegiatan</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo site_url('kegiatan/add'); ?>">
+                                <a href="<?php echo site_url('user/addkegiatan'); ?>">
                                     <span>Tambah Kegiatan</span>
                                 </a>
                             </li> 
                         </ul>
                     </li>
-                     <li class="active">
-                        <a href="<?php echo site_url('user');?>">
-                            <i class="material-icons">home</i>
-                            <span>History Donasi</span>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">assignment</i>
+                            <span>Galang-Go</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo site_url('user/lihattrxdonasi'); ?>">
+                                    <span>History Donasi</span>
+                                </a>
+                            </li> 
+                        </ul>
                     </li>
                     <li class="header">LABELS</li>
                     <li>

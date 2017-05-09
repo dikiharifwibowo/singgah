@@ -65,4 +65,11 @@ class Welcome extends CI_Controller {
 		$this->load->view('detaildonasi',$this->data,'refresh');	
 		$this->load->view('footer');
 	}
+
+	public function kegiatandet($id) {
+		$this->data['datas'] = $this->m_kegiatan->detail($id);
+		$this->load->view('header');	
+		$this->load->view('detailkegiatan',$this->data,'refresh');	
+		$this->load->view('footer');
+	}
 }

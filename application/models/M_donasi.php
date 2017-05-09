@@ -74,4 +74,36 @@ class M_donasi extends CI_Model {
 		$query = $this->db->get();
 		return $query->row(); 
 	}
+
+	//tabel trxdonasi
+	public function kodetrxdonasi(){
+		$this->db->select('RIGHT(trxdonasi.id,3) as kode', FALSE);
+		$this->db->order_by('id','DESC');
+		$this->db->limit(1);
+		$query = $this->db->get('trxdonasi');
+		//cek dulu apakah ada sudah ada kode di tabel.
+		if($query->num_rows() <> 0){
+			//jika kode ternyata sudah ada.
+			$data = $query->row();
+			$kode = intval($data->kode) + 1;
+		}else{
+			//jika kode belum ada
+			$kode = 1;
+		}
+		$kodemax = str_pad($kode, 3, "0", STR_PAD_LEFT);
+		$kodejadi = "TR".$kodemax;
+		return $kodejadi;
+	}
+
+	public function listtrxdonasi($wher="") {
+		$this->db->select('*');
+		$this->db->from('trxdonasi'); //8 utk limit
+		$this->db->limit(4);
+		$this->db->where('users', $wher);
+		$this->db->order_by('id','desc');
+		//$query = $this->db->get('contact');
+		//$tampung = $this->db->query('SELECT * FROM contact ORDER BY No_masuk DESC');
+		$query = $this->db->get();
+		return $query->result_array(); 
+	} 
 }

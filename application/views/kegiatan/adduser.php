@@ -19,7 +19,7 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                             <h2>TAMBAH KEGIATAN</h2>
                         </div>
                         <div class="body">
-                            <form action="<?php echo site_url('kegiatan/doadd'); ?>" method="POST" enctype="multipart/form-data">
+                            <form action="<?php echo site_url('user/doaddkegiatan'); ?>" method="POST" enctype="multipart/form-data">
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="users" required value="<?php echo $_SESSION['identity'] ?>" readonly>
