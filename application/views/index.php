@@ -261,18 +261,26 @@
                         <a href="#" class="nav-link">Galang-Go</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Kegiatan</a>
+                        <a href="#" class="nav-link">Smile-Go</a>
                     </li>
                     <li class="nav-item">
                         <a href="<?php echo site_url('user/add') ?>" class="nav-link">Daftarkan Rumah Singgah || Free</a>
                     </li>
-
+                    <?php if ($this->ion_auth->logged_in()): ?>
+                    <li class="nav-item dropdown btn-group">
+                        <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong><b><?php echo $_SESSION['identity'] ?></b></strong> </a>
+                        <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
+                            <a class="dropdown-item" href="<?php echo site_url('auth/logout') ?>">Logout</a>
+                            <a class="dropdown-item" href="<?php echo site_url('user') ?>">Dashboard</a>
+                        </div>
+                    </li>
+                    <?php else: ?>
                     <li class="nav-item">
 
                         <a href="<?php echo site_url('auth'); ?>" class="nav-link">Login</a>
 
                     </li>
-
+                    <?php endif ?>
                 </ul>
 
             </div>
@@ -345,7 +353,7 @@
 
                         <button class="waves-effect waves-light btn red" type="submit" name="submit">
 
-                           <i class="large material-icons">search</i> Cari Rumah Singgah
+                           <i class="large material-icons">search</i>Cari
 
                         </button>
 
@@ -392,14 +400,8 @@
     <div class="container">
 
     <h2 align="center">Rekomendasi Rumah Singgah</h2>
-
-    <br>
-
-    <br>
-
-    <br>
-
-    
+    <p class="card-text" align="center" style="color: #5bc0de;"><strong> Temukan Rumah Singgah untuk pengobatanmu</strong></p>
+    <br> 
 
         <div class="row">
 
@@ -595,6 +597,7 @@
     <div class="container">
     <hr>
     <h2 align="center">BANTU MEREKA</h2>
+    <p class="card-text" align="center" style="color: #5bc0de;"><strong>Uluran tangan anda sangat berarti mereka, mari bantu mereka</strong></p>
     <hr>
         <div class="row">
             <?php foreach ($donasi as $data): ?>
@@ -633,6 +636,7 @@
     <div class="container">
     <hr>
     <h2 align="center">HIBUR MEREKA</h2>
+    <p class="card-text" style="color: #5bc0de;" align="center"><strong>Kebahagiaan adalah hak bagi sesama manusia, namun kanker telah menghilangkan sebagian harapan meraka, hibur dan kuatkan mereka</strong></p>
     <hr>
         <div class="row">
             <?php foreach ($kegiatan as $data): ?>
@@ -742,14 +746,12 @@
 
                     <ul>
 
-                        <li><a href="#!">Facebook</a></li>
+                        <li><a href="#!"><img width="30" height="30" src="<?php echo site_url('assets/img/fb.png') ?>"> singgah</a></li>
 
-                        <li><a href="#!">Instagram</a></li>
+                        <li><a href="#!"><img width="30" height="30" src="<?php echo site_url('assets/img/inst.png') ?>"> singgah</a></li>
 
-                        <li><a href="#!">Twitter</a></li>
-
-                        <li><a href="#!">Pinterest</a></li>
-
+                        <li><a href="#!"><img width="30" height="30" src="<?php echo site_url('assets/img/tw.png') ?>"> singgah</a></li>
+                        
                     </ul>
 
                 </div>

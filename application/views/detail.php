@@ -1,30 +1,8 @@
 
 
-    <!--Navbar-->
-    <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
-        <div class="container">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="<?php echo site_url('welcome');?>">
-                <strong>Rumah Singgah</strong>
-            </a>
-            <div class="collapse navbar-collapse" id="navbarNav1">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link">Daftarkan Rumah Singgah || Free</a>
-                    </li>
-                    <li class="nav-item">
-                         <a href="<?php echo site_url('auth'); ?>" class="nav-link">Login User</a>
-                    </li>
-                </ul>
-                <!-- <form class="form-inline waves-effect waves-light">
-                    <input class="form-control" type="text" placeholder="Search">
-                </form> -->
-            </div>
-        </div>
-    </nav>
-    <!--/.Navbar-->
+      <!--Navbar-->
+
+    <?php $this->load->view('nav'); ?>
     <br><br>
 <br>
 
@@ -33,7 +11,7 @@
     <h2 align="center">
         <?php echo $details->nama; ?>
     </h2>
-    <h4 align="center"><?php echo $details->alamat;?></h4>
+    <h4 align="center"><i class="large material-icons">location_on</i><?php echo $details->alamat;?></h4>
     <br>
     <br>
     
@@ -61,10 +39,11 @@
                         <div class="col-lg-4" style="margin-top: 20px;">
                             <b>Provinsi : <?php echo $details->provinsi; ?></b><br>
                             <b>Kota : <?php echo $details->kota; ?></b><br><br>
+                            <b><i class="material-icons">location_on</i> Alamat : <?php echo $details->alamat; ?></b><br><br>
 
-                            <b>Telepon : <?php echo $details->telepon; ?></b><br>
-                            <b>rating : <?php echo $details->rating; ?></b><br>
-                            <b>Terakhir Update : <?php echo $details->tgl_update; ?></b><br><br>
+                            <b> <i class="material-icons">call</i> Telepon : <?php echo $details->telepon; ?></b><br>
+                            <b> <i class="material-icons">grade</i> : <?php echo $details->rating; ?></b><br>
+                            <b> <i class="material-icons">update</i>Terakhir Update : <?php echo $details->tgl_update; ?></b><br><br>
                             <p align="center">
                                 "Data dan syarat bisa berubah sewaktu-waktu"
                             </p>
