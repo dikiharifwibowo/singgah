@@ -158,5 +158,13 @@ class Donasi extends CI_Controller {
         }
     }
 
+    public function pengajuan() {
+        $this->data['datas'] =  $this->m_donasi->pengajuan();
+        $this->load->view('admin/header','refresh');
+        $this->load->view('admin/nav','refresh');
+        $this->load->view('admin/sidebar','refresh');
+        $this->load->view('donasi/pengajuan',$this->data,'refresh');
+        $this->load->view('admin/footer','refresh');       
+    }
    
 }

@@ -49,4 +49,13 @@ class M_Singgah extends CI_Model {
 		$tampung = $this->db->query("select * from $table ".$id);
 		return $tampung->row(); 
 	}
+
+	public function pengajuan(){
+		$this->db->select('rumah.*, users.first_name');
+		$this->db->from('rumah');
+		$this->db->join('users','users.id = rumah.user','left');
+		$this->db->order_by('rumah.id','desc');
+		$query = $this->db->get();
+		return $query->result_array();           	
+	}
 }

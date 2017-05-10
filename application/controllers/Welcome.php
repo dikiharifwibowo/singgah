@@ -72,4 +72,19 @@ class Welcome extends CI_Controller {
 		$this->load->view('detailkegiatan',$this->data,'refresh');	
 		$this->load->view('footer');
 	}
+
+	public function filterdonasi() {
+		$this->data['filter'] = $this->m_donasi->filter();
+		$this->load->view('header');	
+		$this->load->view('filterdonasi',$this->data,'refresh');	
+		$this->load->view('footer');
+	}
+
+	public function filterkegiatan() {
+		$this->data['filter'] = $this->m_kegiatan->filter();
+		$this->load->view('header');	
+		$this->load->view('filterkegiatan',$this->data,'refresh');	
+		$this->load->view('footer');
+	}
+
 }

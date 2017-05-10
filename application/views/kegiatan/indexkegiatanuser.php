@@ -58,8 +58,8 @@
                                        <td><?php echo $data['tanggal'] ?></td>
                                        <td><?php echo $data['status'] ?></td>
                                        <td>
-                                           <a href="<?php echo site_url("kegiatan/delete/{$data['id']}") ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"> <i class="material-icons" >delete</i> </a>
-                                           <a href="<?php echo site_url("kegiatan/edit/{$data['id']}") ?>"> <i class="material-icons" >edit</i> </a>
+                                           <a href="<?php echo site_url("user/delkegiatan/{$data['id']}") ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"> <i class="material-icons" >delete</i> </a>
+                                           <a href="<?php echo site_url("user/editkegiatan/{$data['id']}") ?>"> <i class="material-icons" >edit</i> </a>
                                        </td>
                                     </tr>
                                 <?php

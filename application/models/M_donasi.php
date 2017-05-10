@@ -119,4 +119,22 @@ class M_donasi extends CI_Model {
 		$query = $this->db->get();
 		return $query->result_array(); 
 	} 
+
+	
+	public function filter($stat="terima") {
+		$this->db->select('*');
+		$this->db->from('donasi',8);
+		$this->db->where('status', $stat);
+		$query = $this->db->get();
+		return $query->result_array(); 
+	}
+
+	public function pengajuan(){
+		$this->db->select('donasi.*, users.first_name');
+		$this->db->from('donasi');
+		$this->db->join('users','users.id = donasi.users','left');
+		$this->db->order_by('donasi.id','desc');
+		$query = $this->db->get();
+		return $query->result_array();           	
+	}
 }

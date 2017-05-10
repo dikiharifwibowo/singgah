@@ -17,41 +17,44 @@
                                 <thead>
                                     <tr>
                                         <th width="5%">No ID</th>
+                                        <th width="5%">Nama</th>
                                         <th width="10%">Rumah</th>
-                                        <th width="15%">Alamat</th>
-                                        <th width="15%">Kota</th>
-                                        <th width="15%">Isi</th>
-                                        <th width="15%">Telepon</th>
-                                        <th width="5%">Action</th> 
+                                        <th width="25%">Alamat</th>
+                                        <th width="10%">Kota</th>
+                                        <th width="10%">Telepon</th>
+                                        <th width="5%">Status</th>
+                                        <th width="25%">Action</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                 
                                     <tr>
                                         <th width="5%">No ID</th>
+                                        <th width="5%">Nama</th>
                                         <th width="10%">Rumah</th>
-                                        <th width="15%">Alamat</th>
-                                        <th width="15%">Kota</th>
-                                        <th width="15%">Isi</th>
-                                        <th width="15%">Telepon</th>
-                                        <th width="5%">Action</t
+                                        <th width="25%">Alamat</th>
+                                        <th width="10%">Kota</th>
+                                        <th width="10%">Telepon</th>
+                                        <th width="5%">Status</th>
+                                        <th width="25%">Action</th>
                                     </tr>
                                 
                                 </tfoot>
                                 <tbody>
                                 <?php 
-                                foreach ($list as $data) { 
+                                foreach ($datas as $data) { 
                                 ?>   
                                     <tr>
                                         <td><?php echo $data['id'] ?></td>
+                                        <td><?php echo $data['first_name'] ?></td>
                                         <td><?php echo $data['nama'] ?></td>
                                         <td><?php echo $data['alamat'] ?></td>
                                         <td><?php echo $data['kota'] ?></td>
-                                        <td><?php echo substr($data['isi'],0,100)  ?></td>
                                         <td><?php echo $data['telepon'] ?></td>
-                                        <td><a href="<?php echo site_url("user/edit/{$data['id']}"); ?>" ><i class="material-icons" >edit</i></a>
-                                            <a href="<?php echo site_url("user/delete/{$data['id']}"); ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"><i class="material-icons">delete</i></a>
-                                            </td>
+                                        <td><?php echo $data['status'] ?></td>
+                                        <td>
+                                           <a href="<?php echo site_url("admin/acc/{$data['id']}") ?>" class="btn btn-primary waves-effect">ACC</a> &nbsp || &nbsp <a href="<?php echo site_url("admin/reject/{$data['id']}") ?>" class="btn btn-primary waves-effect">REJECT</a>
+                                       </td>
                                     </tr>
                                 <?php
                                 }

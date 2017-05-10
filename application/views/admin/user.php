@@ -65,7 +65,7 @@
                                         </td>
                                         <td><?php echo ($user->active) ? anchor("auth/deactivate/".$user->id,'Active') : anchor("administrator/activate/". $user->id, 'Deactivate');?></td>
                                         <td>
-                                        <a href="<?php echo base_url()."index.php/auth/edit_user/".$user->id;?>" class="btn btn-info"> Edit </a>
+                                        <a href="<?php echo base_url()."index.php/auth/edit_user/".$user->id;?>" ><i class="material-icons" >edit</i></a>
                                         </td>
                                     </tr>
                                 <?php

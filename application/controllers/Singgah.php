@@ -174,4 +174,14 @@ class Singgah extends CI_Controller {
             $this->load->view('admin/500');
         }
     }
+
+    public function pengajuan() {
+        $this->data['datas'] =  $this->m_singgah->pengajuan();
+        $this->load->view('admin/header','refresh');
+        $this->load->view('admin/nav','refresh');
+        $this->load->view('admin/sidebar','refresh');
+        $this->load->view('admin/rumah/pengajuan',$this->data,'refresh');
+        $this->load->view('admin/footer','refresh');       
+    }
+
 }

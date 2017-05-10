@@ -258,10 +258,10 @@
 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Galang-Go</a>
+                        <a href="<?php echo site_url('welcome/filterdonasi') ?>" class="nav-link">Galang-Go</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Smile-Go</a>
+                        <a href="<?php echo site_url('welcome/filterkegiatan') ?>" class="nav-link">Smile-Go</a>
                     </li>
                     <li class="nav-item">
                         <a href="<?php echo site_url('user/add') ?>" class="nav-link">Daftarkan Rumah Singgah || Free</a>

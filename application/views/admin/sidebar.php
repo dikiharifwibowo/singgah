@@ -65,11 +65,16 @@
                                     <span>Tambah Rumah Singgah</span>
                                 </a>
                             </li> 
+                            <li>
+                                <a href="<?php echo site_url('singgah/pengajuan'); ?>">
+                                    <span>Pengajuan Rumah Singgah</span>
+                                </a>
+                            </li>  
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
+                            <i class="material-icons">sentiment_very_satisfied</i>
                             <span>Smile-Go</span>
                         </a>
                         <ul class="ml-menu">
@@ -83,11 +88,16 @@
                                     <span>Tambah Kegiatan</span>
                                 </a>
                             </li> 
+                            <li>
+                                <a href="<?php echo site_url('kegiatan/pengajuan'); ?>">
+                                    <span>Pengajuan Kegiatan</span>
+                                </a>
+                            </li>  
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
+                            <i class="material-icons">attach_money</i>
                             <span>Galang-Go</span>
                         </a>
                         <ul class="ml-menu">
@@ -101,6 +111,16 @@
                                     <span>Tambah Galang dana</span>
                                 </a>
                             </li> 
+                            <li>
+                                <a href="<?php echo site_url('donasi/pengajuan'); ?>">
+                                    <span>Pengajuan Penggalangan</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="<?php echo site_url('donasi/trxdonasi'); ?>">
+                                    <span>Data Transaksi Donasi</span>
+                                </a>
+                            </li>  
                         </ul>
                     </li>
                     <li class="header">SMS</li>

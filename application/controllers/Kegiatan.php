@@ -158,4 +158,12 @@ class Kegiatan extends CI_Controller {
         }
     }
 
+    public function pengajuan() {
+        $this->data['datas'] =  $this->m_kegiatan->pengajuan();
+        $this->load->view('admin/header','refresh');
+        $this->load->view('admin/nav','refresh');
+        $this->load->view('admin/sidebar','refresh');
+        $this->load->view('kegiatan/pengajuans',$this->data,'refresh');
+        $this->load->view('admin/footer','refresh');       
+    }
 }

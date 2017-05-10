@@ -63,7 +63,7 @@
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
+                            <i class="material-icons">sentiment_very_satisfied</i>
                             <span>Smile-Go</span>
                         </a>
                         <ul class="ml-menu">
@@ -81,7 +81,7 @@
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
+                            <i class="material-icons">attach_money</i>
                             <span>Galang-Go</span>
                         </a>
                         <ul class="ml-menu">

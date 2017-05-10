@@ -58,8 +58,8 @@
                                         <td><?php echo $data['kota'] ?></td>
                                         <td><?php echo substr($data['isi'],0,100)  ?></td>
                                         <td><?php echo $data['telepon'] ?></td>
-                                        <td><a href="<?php echo site_url("singgah/edit/{$data['id']}"); ?>" class="btn btn-info"><i class="material-icons">edit</i></a>
-                                            <a href="<?php echo site_url("singgah/delete/{$data['id']}"); ?>" class="btn btn-info" onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"><i class="material-icons">delete</i></a>
+                                        <td><a href="<?php echo site_url("singgah/edit/{$data['id']}"); ?>" ><i class="material-icons">edit</i></a>
+                                            <a href="<?php echo site_url("singgah/delete/{$data['id']}"); ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"><i class="material-icons">delete</i></a>
                                         </td>
                                     </tr>
                                 <?php
