@@ -95,9 +95,22 @@ class M_donasi extends CI_Model {
 		return $kodejadi;
 	}
 
+	//tabel trxdonasi
 	public function listtrxdonasi($wher="") {
 		$this->db->select('*');
 		$this->db->from('trxdonasi'); //8 utk limit
+		$this->db->limit(4);
+		$this->db->where('users', $wher);
+		$this->db->order_by('id','desc');
+		//$query = $this->db->get('contact');
+		//$tampung = $this->db->query('SELECT * FROM contact ORDER BY No_masuk DESC');
+		$query = $this->db->get();
+		return $query->result_array(); 
+	} 
+
+	public function datadonasiuser($wher="") {
+		$this->db->select('*');
+		$this->db->from('donasi'); //8 utk limit
 		$this->db->limit(4);
 		$this->db->where('users', $wher);
 		$this->db->order_by('id','desc');

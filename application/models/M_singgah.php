@@ -45,5 +45,8 @@ class M_Singgah extends CI_Model {
 		return $query->result_array(); 
 	} 
 
-
+	public function selectchangefoto($table,$id){
+		$tampung = $this->db->query("select * from $table ".$id);
+		return $tampung->row(); 
+	}
 }

@@ -4,15 +4,29 @@
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
             <div class="user-info" style="background-color: purple;">
-                <div class="image">
-                    <img src="<?php echo site_url('assets/img/jogja.jpg'); ?>" width="48" height="48" alt="User" />
+                 <div class="image">
+                    <?php
+                    $user = $this->ion_auth->get_user_id();
+                    $CI =& get_instance();
+                    $CI->load->model('m_singgah');
+                    $result = $CI->m_singgah->selectchangefoto('users',"where id = '$user' ");
+                    ?>
+                    <?php if (isset($result)): ?>
+                        <img src="<?php echo site_url("assets/fotoprofil/default.jpg"); ?>" width="48" height="48" alt="User" />
+                    <?php else: ?>
+                        <img src="<?php echo site_url("assets/fotoprofil/{$result->foto}"); ?>" width="48" height="48" alt="User" />
+                    <?php endif ?>
                 </div>
                 <div class="info-container" >
+                <?php 
+               
+                    $user = $this->ion_auth->get_user_id(); ?>
                     <div class="email"><?php echo $_SESSION['identity'] ?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>i>
+                            <li><a href="<?php echo site_url("auth/edit_user/$user")?>"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="<?php echo site_url("admin/changefoto/$user")?>"><i class="material-icons">person</i>Change Foto</a></li>
                             <li><a href="<?php echo site_url('auth/logout') ?>"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
