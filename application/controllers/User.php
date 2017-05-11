@@ -8,6 +8,7 @@ class User extends CI_Controller {
 		parent::__construct();;
 		$this->lang->load('auth');
 		$this->load->model('m_singgah');
+        $this->load->model('m_artikel');     
         $this->load->model('m_kegiatan');
         $this->load->model('m_donasi');
         $this->load->library('ion_auth');
@@ -517,4 +518,138 @@ class User extends CI_Controller {
             $this->load->view('admin/500');
         }
     }
+
+    public function lihatdataartikel() {
+        $this->data['datas'] =  $this->m_artikel->list();
+        $this->load->view('admin/header','refresh');
+        $this->load->view('admin/nav','refresh');
+        $this->load->view('admin/sidebaruser','refresh');
+        $this->load->view('artikel/indexartikel',$this->data,'refresh');
+        $this->load->view('admin/footer','refresh');
+    }
+
+    public function addartikel() {
+        $this->data['berita'] =  $this->m_artikel->kodeberita();
+        $this->load->view('admin/header','refresh');
+        $this->load->view('admin/nav','refresh');
+        $this->load->view('admin/sidebaruser','refresh');
+        $this->load->view('artikel/add',$this->data,'refresh');
+        $this->load->view('admin/footer','refresh');
+    }
+
+    public function doaddberita() {
+        $id = $_POST['id'];
+        $users = $this->ion_auth->get_user_id();
+        $judul = $_POST['judul'];
+        $isi = $_POST['isi'];
+        $tglbuat = date('Y-m-d');
+        $tglupdate = date('Y-m-d'); 
+        $status = 'menunggu';
+
+        if (isset($_POST['simpan'])){
+            $fileName = $_FILES['foto']['name'];
+        }
+
+        $this->load->library('upload');
+        $config['upload_path']          = 'assets/img/artikel';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['overwrite']            = true;
+        $config['max_size']             = 1000;
+        $config['max_width']            = 10024;
+        $config['max_height']           = 7068;
+
+        // $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        $this->upload->do_upload('foto');
+
+        $data_insert = array (
+            'id' => $id,  
+            'users' => $users,  
+            'judul' => $judul,
+            'isi' => $isi,
+            'foto' => $fileName,              
+            'tglbuat' => $tglbuat,
+            'tglupdate' => $tglupdate,
+            'status' => $status
+                                   
+        );
+        $tampung = $this->m_artikel->insert('berita',$data_insert); //ingat prinsip insert/adddata
+        if ($tampung>=1) {
+            redirect('user/lihatdataartikel', 'refresh');
+            move_uploaded_file($_FILES['foto']['tmp_name'], "/singgah/img/artikel/".$_FILES['foto']['name']);
+        } else {
+            $this->load->view('admin/500');
+        }
+    }
+
+    public function delartikel($id) {
+        $tangkap = $this->m_artikel->delete('berita',"id = '$id'");
+        if ($tangkap==1) {
+            redirect('user/lihatdataartikel', 'refresh');
+        } else {
+            $this->load->view('admin/500');
+        }
+    }
+
+    public function editartikel($id) {
+        $tampung = $this->m_artikel->edit('berita',"where id = '$id' ");
+        $data = array(       
+            'id' => $tampung->id,  
+            'users' =>$tampung->users,  
+            'judul' => $tampung->judul,
+            'foto' => $tampung->foto,
+            'isi' => $tampung->isi,
+            'tglbuat' => $tampung->tglbuat,
+            'tglupdate' => $tampung->tglupdate   
+        );
+        $this->load->view('admin/header','refresh');
+        $this->load->view('admin/nav','refresh');
+        $this->load->view('admin/sidebaruser','refresh');
+        $this->load->view('artikel/edit',$data,'refresh');
+        $this->load->view('admin/footer','refresh');
+    }
+
+    public function doeditberita() {
+        $id = $_POST['id'];
+        $users = $this->ion_auth->get_user_id();
+        $judul = $_POST['judul'];
+        $isi = $_POST['isi'];
+        $tglbuat = date('Y-m-d');
+        $tglupdate = date('Y-m-d');
+
+        if (isset($_POST['simpan'])){
+            $fileName = $_FILES['foto']['name'];
+        }
+
+        $this->load->library('upload');
+        $config['upload_path']          = 'assets/img/artikel';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['overwrite']            = true;
+        $config['max_size']             = 1000;
+        $config['max_width']            = 10024;
+        $config['max_height']           = 7068;
+
+        // $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        $this->upload->do_upload('foto');
+
+        $data_update = array (
+            'id' => $id,  
+            'users' => $users,  
+            'judul' => $judul,
+            'foto' => $fileName,
+            'isi' => $isi,
+            'tglbuat' => $tglbuat,
+            'tglupdate' => $tglupdate                           
+        );
+        $where = array ('id' => $id);
+        $tampung = $this->m_artikel->update('berita',$data_update,$where); //ingat prinsip insert/adddata
+        if ($tampung>=1) {
+            redirect('user/lihatdataartikel', 'refresh');
+            move_uploaded_file($_FILES['foto']['tmp_name'], "singgah/img/artikel/".$_FILES['foto']['name']);
+        } else {
+            $this->load->view('admin/500');
+        }
+    }
+
 }

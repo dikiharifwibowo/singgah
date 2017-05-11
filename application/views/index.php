@@ -434,9 +434,7 @@
 
     <script type="text/javascript" src="<?php echo site_url('assets/js/mdb.min.js'); ?>"></script>
 
-    <pre>
-        <?php print_r(json_encode($map)); ?>
-    </pre>
+
 <script type="text/javascript">
     function initMap() {
 
@@ -444,6 +442,7 @@
 
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 5,
+      scrollwheel: false,
       center: new google.maps.LatLng(-2.5, 118),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });

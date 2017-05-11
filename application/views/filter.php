@@ -55,7 +55,8 @@
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 10,
-          center: {lat: -6.186486, lng: 106.834091}
+          scrollwheel: false,
+          center: {lat: <?php echo $lat; ?>, lng: <?php echo $long; ?>}
         });
 
         setMarkers(map);
@@ -82,7 +83,9 @@
         // Shapes define the clickable region of the icon. The type defines an HTML
         // <area> element 'poly' which traces out a polygon as a series of X,Y points.
         // The final coordinate closes the poly by connecting to the first coordinate.
-        
+        var locations = JSON.parse('<?php echo json_encode($map) ?>');
+        var infowindow = new google.maps.InfoWindow();
+
         for (var i = 0; i < beaches.length; i++) {
           var beach = beaches[i];
           var marker = new google.maps.Marker({
@@ -91,10 +94,14 @@
             title: beach[0],
           
           });
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+              infowindow.setContent("<p align='center'> <a href='<?php echo site_url("welcome/detail/") ?>"+locations[i].id+"'>"+locations[i].nama+"</a> <br>"+locations[i].alamat+"</p>");        
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
         }
       }
     </script>
 
-        <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAELuqtE6zJbqaAfaQdJYDnLc72LbDrhvI&callback=initMap">
-    </script>
+ 

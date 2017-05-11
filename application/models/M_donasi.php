@@ -138,4 +138,14 @@ class M_donasi extends CI_Model {
 		$query = $this->db->get();
 		return $query->result_array();           	
 	}
+
+	function filterdn($number,$offset){
+		$this->db->where('status ', 'terima');
+		return $query = $this->db->get('donasi',$number,$offset)->result();		
+	}
+ 
+	function jumlah_data(){
+		$this->db->where('status ', 'terima');
+		return $this->db->get('donasi')->num_rows();
+	}
 }

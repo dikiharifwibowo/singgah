@@ -123,6 +123,12 @@
                             </li>  
                         </ul>
                     </li>
+                    <li class="active">
+                        <a href="<?php echo site_url('artikel');?>">
+                            <i class="material-icons">book</i>
+                            <span>Pengajuan Artikel</span>
+                        </a>
+                    </li>
                     <li class="header">SMS</li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">

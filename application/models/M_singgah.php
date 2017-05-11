@@ -44,6 +44,16 @@ class M_Singgah extends CI_Model {
 		return $query->result_array(); 
 	} 
 
+	public function listmapfilter($city) {
+		$this->db->select('id,nama,latitude,longitude,alamat');
+		$this->db->from('rumah'); 
+		$this->db->where('status', 'terima');
+		$this->db->where('kota', $city);
+		$this->db->order_by('id','desc');
+		$query = $this->db->get();
+		return $query->result_array(); 
+	}
+
 	public function listrumah($wher="") {
 		$this->db->select('*');
 		$this->db->from('rumah'); 

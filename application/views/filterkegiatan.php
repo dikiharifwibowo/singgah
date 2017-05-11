@@ -15,7 +15,7 @@
                     <div class="row" >
                         <div class="col-lg-6" style=" margin: 0 auto;">
                             <p align="center" style="margin: 9px; ">
-                            <form action="<?php echo site_url('user/doaddkirimdonasi'); ?>" method="POST" enctype="multipart/form-data">                          
+                            <form action="<?php echo site_url('#'); ?>" method="POST" enctype="multipart/form-data">                          
                                   <input type="text" name="jumlah" class="form-control" required placeholder="Search here" style="white-space: nowrap;">
                             </form>
                             </p>
@@ -41,7 +41,7 @@
                     <!--Card image-->
                     <div class="view overlay hm-white-slight">
 
-                        <img style="width: 260px; height: 200px;" src="<?php echo site_url("assets/img/donasi/{$data['foto']}"); ?>" class="img-fluid" alt="">
+                        <img style="width: 260px; height: 200px;" src="<?php echo site_url("assets/img/kegiatan/$data->foto"); ?>" class="img-fluid" alt="">
 
                         <a href="#">
 
@@ -55,9 +55,9 @@
                     <div class="card-block" style="height: 185px;">
                         <!--Text-->
 
-                        <p class="card-text"><?php echo substr($data['deskripsi'],0,50);  ?></p>
+                        <p class="card-text"><?php echo substr($data->deskripsi,0,50);  ?></p>
 
-                        <a href="<?php echo site_url("welcome/donasidet/{$data['id']}"); ?>" class="btn btn-info">DONASI</a>
+                        <a href="<?php echo site_url("welcome/kegiatandet/$data->id"); ?>" class="btn btn-info">DONASI</a>
 
                     </div>
                     <!--/.Card content-->
@@ -65,5 +65,11 @@
             </div>  
             <?php endforeach ?>          
         </div>
+        <br>
+        <ul class="pagination pagination-lg">
+          <li><?php 
+            echo $this->pagination->create_links();
+            ?></li>
+        </ul>
     </div>
     <!--Footer-->

@@ -97,6 +97,24 @@
                             </li> 
                         </ul>
                     </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">book</i>
+                            <span>Educate-Go</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo site_url('user/lihatdataartikel'); ?>">
+                                    <span>Data Artikelku</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url('user/addartikel'); ?>">
+                                    <span>Buat Artikel</span>
+                                </a>
+                            </li> 
+                        </ul>
+                    </li>
                     <li class="active">
                         <a href="<?php echo site_url('user/lihattrxdonasi'); ?>">
                             <i class="material-icons">assignment</i>
