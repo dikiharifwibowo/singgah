@@ -1,400 +1,8 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-
-
-<head>
-
-
-
-    <meta charset="utf-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-
-
-    <title>AMICTA || Rumah Singgah </title>
-
-
-
-    <!-- Font Awesome -->
-
-    <link rel="stylesheet" href="<?php echo site_url('assets/css/font-awesome.min.css'); ?>">
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Bootstrap core CSS -->
-
-    <link href="<?php echo site_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
-
-
-
-    <!-- Material Design Bootstrap -->
-
-    <link href="<?php echo site_url('assets/css/mdb.min.css'); ?>" rel="stylesheet">
-
-    <link rel="shortcut icon" href="<?php echo site_url('assets/img/favicon.ico') ?>">
-
-
-
-    <!-- Template styles -->
-
-    <style rel="stylesheet">
-
-        /* TEMPLATE STYLES */
-
-        /* Necessary for full page carousel*/
-
-        
-
-        html,
-
-        body {
-
-            height: 100%;
-
-        }
-
-        /* Navigation*/
-
-        
-
-        .navbar {
-
-            background-color: transparent;
-
-        }
-
-        
-
-        .top-nav-collapse {
-
-            background-color: #304a74;
-
-        }
-
-        
-
-        footer.page-footer {
-
-            background-color: #304a74;
-
-        }
-
-        
-
-        @media only screen and (max-width: 768px) {
-
-            .navbar {
-
-                background-color: #4285F4;
-
-            }
-
-        }
-
-        
-
-        .scrolling-navbar {
-
-            -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
-
-            -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
-
-            transition: background .5s ease-in-out, padding .5s ease-in-out;
-
-        }
-
-        /* Carousel*/
-
-        
-
-        .carousel {
-
-            height: 50%;
-
-        }
-
-        
-
-        @media (max-width: 776px) {
-
-            .carousel {
-
-                height: 100%;
-
-            }
-
-        }
-
-        
-
-        .carousel-item,
-
-        .active {
-
-            height: 100%;
-
-        }
-
-        
-
-        .carousel-inner {
-
-            height: 100%;
-
-        }
-
-        
-
-        /*Caption*/
-
-        
-
-        .flex-center {
-
-            color: #fff;
-
-        }
-
-
-
-        #waves-effect {
-
-            position: relative;
-
-            cursor: pointer;
-
-            overflow: hidden;
-
-            -webkit-user-select: none;
-
-            -moz-user-select: none;
-
-            -ms-user-select: none;
-
-            user-select: none;
-
-            z-index: 1;
-
-        }
-
-
-
-        .btn {
-
-            display: inline-block;
-
-            font-weight: 400;
-
-            line-height: 1.25;
-
-            text-align: center;
-
-            white-space: nowrap;
-
-            vertical-align: middle;
-
-            -webkit-user-select: none;
-
-            -moz-user-select: none;
-
-            -ms-user-select: none;
-
-            user-select: none;
-
-            border: 1px solid transparent;
-
-            padding: .5rem 1rem;
-
-            font-size: 1rem;
-
-            border-radius: .25rem;
-
-            -webkit-transition: all .2s ease-in-out;
-
-            -o-transition: all .2s ease-in-out;
-
-            transition: all .2s ease-in-out;
-
-        }
-
-    </style>
-
-
-
-</head>
-
-
-
-<body>
-
-
-
-
-
-    <!--Navbar-->
-
-    <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
-
-        <div class="container">
-
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
-
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-            <a class="navbar-brand" href="#">
-
-                <strong>Rumah Singgah</strong>
-
-            </a>
-
-            <div class="collapse navbar-collapse" id="navbarNav1">
-
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a href="<?php echo site_url('welcome/filterdonasi') ?>" class="nav-link">Galang-Go</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?php echo site_url('welcome/filterkegiatan') ?>" class="nav-link">Smile-Go</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?php echo site_url('user/add') ?>" class="nav-link">Daftarkan Rumah Singgah || Free</a>
-                    </li>
-                    <?php if ($this->ion_auth->logged_in()): ?>
-                    <li class="nav-item dropdown btn-group">
-                        <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong><b><?php echo $_SESSION['identity'] ?></b></strong> </a>
-                        <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="<?php echo site_url('auth/logout') ?>">Logout</a>
-                            <a class="dropdown-item" href="<?php echo site_url('user') ?>">Dashboard</a>
-                        </div>
-                    </li>
-                    <?php else: ?>
-                    <li class="nav-item">
-
-                        <a href="<?php echo site_url('auth'); ?>" class="nav-link">Login</a>
-
-                    </li>
-                    <?php endif ?>
-                </ul>
-
-            </div>
-
-        </div>
-
-    </nav>
-
-    <!--/.Navbar-->
-
-
-
-    <!--Carousel Wrapper-->
-
-    <div id="carousel-example-3" class="carousel slide carousel-fade white-text" data-ride="carousel" data-interval="false">
-
-        <!--Indicators-->
-
-        <ol class="carousel-indicators">
-
-        </ol>
-
-        <!--/.Indicators-->
-
-
-
-        <!--Slides-->
-
-        <div class="carousel-inner" role="listbox">
-
-
-
-            <!-- First slide -->
-
-            <div class="carousel-item active view hm-black-light" style="background-image: url('<?php echo site_url('assets/img/slide.jpg'); ?>'); background-repeat: no-repeat; background-size: cover;">
-
-                
-
-                <!-- Caption -->
-
-                <div class="full-bg-img flex-center white-text">
-
-                <br>
-
-                    <ul class="animated fadeInUp col-md-12">
-
-                        <li>
-
-                            <h1 class="h1-responsive">Cari Rumah Singgah?</h1></li>
-
-                        <li>
-
-                            <p>Temukan rumah singgah, Bantu mereka, Hibur mereka, Gratis.</p>
-
-                        </li>
-
-                        <li>
-
-                        <form action="<?php echo site_url('welcome/search'); ?>" method="POST">  
-
-                        <select class="btn btn-primary">
-
-                          <option value="peta">Cari dari Peta</option>
-
-                          <option value="google" disabled="">Cari dari Google</option>
-
-                        </select>&nbsp &nbsp &nbsp
-
-                        <input placeholder="Cari Berdasarkan Lokasi Di Sini" type="text" name="nama" class="validate" style="width: 180px; text-align: left;">
-
-                        <button class="waves-effect waves-light btn red" type="submit" name="submit">
-
-                           <i class="large material-icons">search</i>Cari
-
-                        </button>
-
-                        </form>
-
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <!-- /.Caption -->
-
-                
-
-            </div>
-
-
-
-        </div>
-
-        <!--/.Slides-->
-
-
-
-        <!--Controls-->
-
-        <!-- c -->
-
-        <!--/.Controls-->
-
-    </div>
-
-    <!--/.Carousel Wrapper-->
-
-
-
+<?php $this->load->view('header') ?>
+<?php $this->load->view('nav') ?>
+<div id="map" style="height: 500px; width: 100%; margin: 0 auto;"></div>      
     <br>
-
-
-
+    <br>
     <!--Content-->
 
     <div class="container">
@@ -810,8 +418,6 @@
 
     <script type="text/javascript" src="<?php echo site_url('assets/js/jquery-2.2.3.min.js'); ?>"></script>
 
-
-
     <!-- Bootstrap tooltips -->
 
     <script type="text/javascript" src="<?php echo site_url('assets/js/tether.min.js'); ?>"></script>
@@ -828,9 +434,41 @@
 
     <script type="text/javascript" src="<?php echo site_url('assets/js/mdb.min.js'); ?>"></script>
 
+    <pre>
+        <?php print_r(json_encode($map)); ?>
+    </pre>
+<script type="text/javascript">
+    function initMap() {
 
+    var locations = JSON.parse('<?php echo json_encode($map) ?>');
 
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 5,
+      center: new google.maps.LatLng(-2.5, 118),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
 
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) { 
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i].latitude, locations[i].longitude),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent("<p align='center'> <a href='<?php echo site_url("welcome/detail/") ?>"+locations[i].id+"'>"+locations[i].nama+"</a> <br>"+locations[i].alamat+"</p>");        
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+}
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAELuqtE6zJbqaAfaQdJYDnLc72LbDrhvI&callback=initMap"
+        async defer></script>
 
 </body>
 

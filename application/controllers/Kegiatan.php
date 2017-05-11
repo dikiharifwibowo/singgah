@@ -166,4 +166,36 @@ class Kegiatan extends CI_Controller {
         $this->load->view('kegiatan/pengajuans',$this->data,'refresh');
         $this->load->view('admin/footer','refresh');       
     }
+
+    public function acc($id) {
+        $status = 'terima';
+        $data_update = array (
+            'id' => $id,  
+            'status' => $status             
+        );
+        $where = array ('id' => $id);
+        $tampung = $this->m_kegiatan->update('kegiatan',$data_update,$where); //ingat prinsip insert/adddata
+        if ($tampung>=1) {
+            echo "<script>window.alert('Pengajuan Telah di terima, Kegiatan akan tampil di Production');</script>";
+            redirect('kegiatan/pengajuan', 'refresh');
+        } else {
+            $this->load->view('admin/500');
+        }
+    }
+
+    public function reject($id) {
+        $status = 'tolak';
+        $data_update = array (
+            'id' => $id,  
+            'status' => $status             
+        );
+        $where = array ('id' => $id);
+        $tampung = $this->m_kegiatan->update('kegiatan',$data_update,$where); //ingat prinsip insert/adddata
+        if ($tampung>=1) {
+            echo "<script>window.alert('Pengajuan Kegiatan telah di TOLAK jadi Revisi');</script>";
+            redirect('kegiatan/pengajuan', 'refresh');
+        } else {
+            $this->load->view('admin/500');
+        }
+    }
 }

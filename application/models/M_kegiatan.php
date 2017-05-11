@@ -92,9 +92,10 @@ class M_Kegiatan extends CI_Model {
 		return $query->result_array(); 
 	}
 
-	public function pengajuan(){
+	public function pengajuan($stat="terima"){
 		$this->db->select('kegiatan.*, users.first_name');
 		$this->db->from('kegiatan');
+		$this->db->where('status !=', $stat);
 		$this->db->join('users','users.id = kegiatan.users','left');
 		$this->db->order_by('kegiatan.id','desc');
 		$query = $this->db->get();

@@ -31,11 +31,19 @@ class M_Singgah extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('rumah'); //8 utk limit
 		$this->db->order_by('id','desc');
-		//$query = $this->db->get('contact');
-		//$tampung = $this->db->query('SELECT * FROM contact ORDER BY No_masuk DESC');
 		$query = $this->db->get();
 		return $query->result_array(); 
 	} 
+
+	public function listmap($wher="terima") {
+		$this->db->select('id,nama,latitude,longitude,alamat');
+		$this->db->from('rumah'); 
+		$this->db->where('status', $wher);
+		$this->db->order_by('id','desc');
+		$query = $this->db->get();
+		return $query->result_array(); 
+	} 
+
 	public function listrumah($wher="") {
 		$this->db->select('*');
 		$this->db->from('rumah'); 
@@ -50,9 +58,10 @@ class M_Singgah extends CI_Model {
 		return $tampung->row(); 
 	}
 
-	public function pengajuan(){
+	public function pengajuan($stat="terima"){
 		$this->db->select('rumah.*, users.first_name');
 		$this->db->from('rumah');
+		$this->db->where('status !=', $stat);
 		$this->db->join('users','users.id = rumah.user','left');
 		$this->db->order_by('rumah.id','desc');
 		$query = $this->db->get();

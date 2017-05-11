@@ -129,9 +129,10 @@ class M_donasi extends CI_Model {
 		return $query->result_array(); 
 	}
 
-	public function pengajuan(){
+	public function pengajuan($stat="terima"){
 		$this->db->select('donasi.*, users.first_name');
 		$this->db->from('donasi');
+		$this->db->where('status !=', $stat);
 		$this->db->join('users','users.id = donasi.users','left');
 		$this->db->order_by('donasi.id','desc');
 		$query = $this->db->get();

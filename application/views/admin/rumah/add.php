@@ -54,12 +54,12 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
                                         </div>
                                         <div class="col-sm-6">
                                                 <select name="city" class="form-control show-tick" >
-                                                    <option value="Surabaya">Surabaya</option>
-                                                    <option value="Semarang">Semarang</option>
-                                                    <option value="Jogja">Jogja</option>
-                                                    <option value="Jakarta">Jakarta</option>
-                                                    <option value="Bandung">Bandung</option>
-                                                    <option value="Bali">Bali</option>
+                                                    <option value="surabaya">Surabaya</option>
+                                                    <option value="semarang">Semarang</option>
+                                                    <option value="jogja">Jogja</option>
+                                                    <option value="jakarta">Jakarta</option>
+                                                    <option value="bandung">Bandung</option>
+                                                    <option value="bali">Bali</option>
                                                     
                                                 </select>
                                         </div>
@@ -141,15 +141,33 @@ li {margin-left:0px; padding:5px; list-style-type:decimal;}
     <script src="<?php echo site_url('assets/admin/'); ?>js/pages/forms/editors.js"></script>
     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyAELuqtE6zJbqaAfaQdJYDnLc72LbDrhvI" type="text/javascript"></script>
     <script type="text/javascript">
-var latc,longc;
+if (GBrowserIsCompatible()) {
+    map = new GMap2(document.getElementById("mapa"));
+    map.disableScrollWheelZoom();
+    map.addControl(new GLargeMapControl());
+    map.addControl(new GMapTypeControl(3));
+    map.setCenter( new GLatLng(-6.966667, 110.416664), 14,0);
+
+    GEvent.addListener(map,'mousemove',function(point){
+    document.getElementById('latspan').innerHTML = point.lat()
+    document.getElementById('lngspan').innerHTML = point.lng()
+    document.getElementById('latlong').innerHTML = point.lat() + ', ' + point.lng()
+    });
+
+    GEvent.addListener(map,'click',function(overlay,point) {
+    document.getElementById('latclicked').value = point.lat()
+    document.getElementById('longclicked').value = point.lng()
+    });
+}
+
+// var latc,longc;
 
 document.addEventListener('DOMContentLoaded',function() {
     document.querySelector('select[name="city"]').onchange=updateinput;
 },false);
 
-function updateinput(event){
-    
-    var city
+function updateinput(event){    
+    var city = event.target.value
     if (city=='semarang') {
         latc = -6.966667
         longc = 110.416664
@@ -169,32 +187,8 @@ function updateinput(event){
         latc = -7.797457
         longc = 110.370697
     }
-    return [latc,longc];
+    map.setCenter( new GLatLng(latc, longc), 14,0);
 }
-var codes = updateinput();
-var dCodes = codes[0];
-var dCodes2 = codes[1];
 
-if (GBrowserIsCompatible())
-{
-map = new GMap2(document.getElementById("mapa"));
-map.disableScrollWheelZoom();
-map.addControl(new GLargeMapControl());
-map.addControl(new GMapTypeControl(3));
-map.setCenter( new GLatLng(dCodes, dCodes2), 14,0);
-
-GEvent.addListener(map,'mousemove',function(point)
-{
-document.getElementById('latspan').innerHTML = point.lat()
-document.getElementById('lngspan').innerHTML = point.lng()
-document.getElementById('latlong').innerHTML = point.lat() + ', ' + point.lng()
-});
-
-GEvent.addListener(map,'click',function(overlay,point)
-{
-document.getElementById('latclicked').value = point.lat()
-document.getElementById('longclicked').value = point.lng()
-});
-}
 </script>
     

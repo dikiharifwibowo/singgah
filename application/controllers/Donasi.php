@@ -166,5 +166,36 @@ class Donasi extends CI_Controller {
         $this->load->view('donasi/pengajuan',$this->data,'refresh');
         $this->load->view('admin/footer','refresh');       
     }
-   
+    
+    public function acc($id) {
+        $status = 'terima';
+        $data_update = array (
+            'id' => $id,  
+            'status' => $status             
+        );
+        $where = array ('id' => $id);
+        $tampung = $this->m_donasi->update('donasi',$data_update,$where); //ingat prinsip insert/adddata
+        if ($tampung>=1) {
+            echo "<script>window.alert('Pengajuan Telah di terima, Penggalangan Donasi akan tampil di Production');</script>";
+            redirect('donasi/pengajuan', 'refresh');
+        } else {
+            $this->load->view('admin/500');
+        }
+    }
+
+    public function reject($id) {
+        $status = 'tolak';
+        $data_update = array (
+            'id' => $id,  
+            'status' => $status             
+        );
+        $where = array ('id' => $id);
+        $tampung = $this->m_donasi->update('donasi',$data_update,$where); //ingat prinsip insert/adddata
+        if ($tampung>=1) {
+            echo "<script>window.alert('Pengajuan Penggalangan telah di TOLAK');</script>";
+            redirect('donasi/pengajuan', 'refresh');
+        } else {
+            $this->load->view('admin/500');
+        }
+    }
 }

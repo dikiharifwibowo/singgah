@@ -7,12 +7,14 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('m_rumah');
+		$this->load->model('m_singgah');
 		$this->load->model('m_donasi');
 		$this->load->model('m_kegiatan');
 			
 	}
 	public function index()
 	{	
+		$this->data['map'] = $this->m_singgah->listmap();
 		$this->data['rec_rumah'] =  $this->m_rumah->rec_rumah();
 		$this->data['donasi'] =  $this->m_donasi->rec_donasi();
 		$this->data['kegiatan'] =  $this->m_kegiatan->rec_kegiatan();

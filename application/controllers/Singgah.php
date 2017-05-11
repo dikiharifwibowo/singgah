@@ -184,4 +184,35 @@ class Singgah extends CI_Controller {
         $this->load->view('admin/footer','refresh');       
     }
 
-}
+    public function acc($id) {
+        $status = 'terima';
+        $data_update = array (
+            'id' => $id,  
+            'status' => $status             
+        );
+        $where = array ('id' => $id);
+        $tampung = $this->m_singgah->update('rumah',$data_update,$where); //ingat prinsip insert/adddata
+        if ($tampung>=1) {
+            echo "<script>window.alert('Pengajuan Telah di terima, Data rumah singgah akan tampil di Production');</script>";
+            redirect('singgah/pengajuan', 'refresh');
+        } else {
+            $this->load->view('admin/500');
+        }
+    }
+
+    public function reject($id) {
+        $status = 'revisi';
+        $data_update = array (
+            'id' => $id,  
+            'status' => $status             
+        );
+        $where = array ('id' => $id);
+        $tampung = $this->m_singgah->update('rumah',$data_update,$where); //ingat prinsip insert/adddata
+        if ($tampung>=1) {
+            echo "<script>window.alert('Pengajuan Rumah Singgah telah di TOLAK jadi Revisi');</script>";
+            redirect('singgah/pengajuan', 'refresh');
+        } else {
+            $this->load->view('admin/500');
+        }
+    }
+}   

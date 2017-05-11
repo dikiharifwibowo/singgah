@@ -53,7 +53,7 @@
                                         <td><?php echo $data['telepon'] ?></td>
                                         <td><?php echo $data['status'] ?></td>
                                         <td>
-                                           <a href="<?php echo site_url("admin/acc/{$data['id']}") ?>" class="btn btn-primary waves-effect">ACC</a> &nbsp || &nbsp <a href="<?php echo site_url("admin/reject/{$data['id']}") ?>" class="btn btn-primary waves-effect">REJECT</a>
+                                           <a href="<?php echo site_url("singgah/acc/{$data['id']}") ?>" class="btn btn-primary waves-effect">ACC</a> &nbsp || &nbsp <a href="<?php echo site_url("singgah/reject/{$data['id']}") ?>" class="btn btn-primary waves-effect">REJECT</a>
                                        </td>
                                     </tr>
                                 <?php

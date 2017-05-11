@@ -16,7 +16,7 @@
                         <div class="col-lg-6" style=" margin: 0 auto;">
                             <p align="center" style="margin: 9px; ">
                             <form action="<?php echo site_url('user/doaddkirimdonasi'); ?>" method="POST" enctype="multipart/form-data">                          
-                                  <input type="text" name="jumlah" class="form-control" required placeholder="Search here" style="white-space: nowrap;"><i style="white-space: nowrap;" class="material-icons">search</i>Cari
+                                  <input type="text" name="jumlah" class="form-control" required placeholder="Search here" style="white-space: nowrap;">
                             </form>
                             </p>
                         </div>                        
