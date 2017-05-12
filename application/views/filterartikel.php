@@ -12,7 +12,7 @@
 
     <div class="container">
 
-    <h4 align="center">EDUCATE-GO</h4>
+    <h4 align="center"> <i class="material-icons">book</i> EDUCATE-GO</h4>
 
     <br> 
 
@@ -114,7 +114,7 @@
 
                         <!--Text-->
 
-                        <p class="card-text"><?php echo substr($key->isi,0,100) ?></p>
+                        <p class="card-text"><?php echo substr(strip_tags($key->isi),0,100) ?></p>
 
                         <a href="<?php echo site_url("welcome/artikel/$key->id") ?>" class="btn btn-info">Read more</a>
 

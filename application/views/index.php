@@ -1,5 +1,13 @@
 <?php $this->load->view('header') ?>
 <?php $this->load->view('nav') ?>
+<br>
+<br>
+<br>
+<div class="card">
+    <div class="card-text">
+        <p align="center" style="color: #5bc0de;"><b><strong>klik pin untuk informasi rumah singgah</b></strong></p>
+    </div>
+</div>
 <div id="map" style="height: 500px; width: 100%; margin: 0 auto;"></div>      
     <br>
     <br>
