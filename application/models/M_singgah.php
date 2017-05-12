@@ -77,4 +77,16 @@ class M_Singgah extends CI_Model {
 		$query = $this->db->get();
 		return $query->result_array();           	
 	}
+
+	//table booking, tapi load rumah singgah
+    public function listbooking($user="") {
+    	$this->db->select('rumah.*, booking.*');
+		$this->db->from('rumah');
+		$this->db->where('rumah.user', $user);
+		$this->db->join('users','users.id = rumah.user','right');
+		$this->db->join('booking','booking.rumah = rumah.id','right');
+		$this->db->order_by('rumah.id','desc');
+		$query = $this->db->get();
+		return $query->result_array(); 
+    }
 }

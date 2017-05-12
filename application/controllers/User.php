@@ -93,9 +93,10 @@ class User extends CI_Controller {
             'status' => $status           
         );
         $tampung = $this->m_singgah->insert('rumah',$data_insert); //ingat prinsip insert/adddata
-        move_uploaded_file($_FILES['foto']['tmp_name'], "/singgah/assets/img/rumah/".$_FILES['foto']['name']);
         if ($tampung>=1) {
             redirect('user', 'refresh');
+            move_uploaded_file($_FILES['foto']['tmp_name'], "/singgah/assets/img/rumah/".$_FILES['foto']['name']);
+
         } else {
         	redirect('user/add');
         }
@@ -182,9 +183,9 @@ class User extends CI_Controller {
 
         $where = array ('id' => $id);
         $tampung = $this->m_singgah->update('rumah',$data_update,$where);
-        move_uploaded_file($_FILES['foto']['tmp_name'], "/singgah/assets/img/rumah/".$_FILES['foto']['name']);
         if ($tampung>=1) {
             redirect('user/lihatkegiatan');
+            move_uploaded_file($_FILES['foto']['tmp_name'], "/singgah/assets/img/rumah/".$_FILES['foto']['name']);
         } else {
             $this->load->view('admin/500');
         }
@@ -652,4 +653,14 @@ class User extends CI_Controller {
         }
     }
 
+    public function lihatbooking() {
+        $users = $this->ion_auth->get_user_id();
+        $this->data['datas'] =  $this->m_singgah->listbooking($users);
+        $this->load->view('admin/header','refresh');
+        $this->load->view('admin/nav','refresh');
+        $this->load->view('admin/sidebaruser','refresh');
+        $this->load->view('admin/rumah/booking',$this->data,'refresh');
+        $this->load->view('admin/footer','refresh');
+    }
+   
 }

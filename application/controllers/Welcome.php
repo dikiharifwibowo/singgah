@@ -146,4 +146,37 @@ class Welcome extends CI_Controller {
 		$this->load->view('detailartikel',$this->data,'refresh');	
 		$this->load->view('footer');
 	}
+
+	public function booking($rumah) {
+        $tampung = $this->m_singgah->edit("where id = '$rumah' ");
+        $data = array(
+    		'id' =>$tampung->id  		  
+    	);
+    	$this->load->view('header');	
+		$this->load->view('booking',$data,'refresh');	
+		$this->load->view('footer');
+    }
+
+    public function doaddbooking() {
+    	$rumah = $_POST['rumah'];
+    	$nama = $_POST['nama'];
+    	$ktp = $_POST['noktp'];
+    	$nohp = $_POST['nohp'];
+    	$email = $_POST['email'];
+    	
+    	$data_insert = array (
+            'rumah' => $rumah,
+          	'nama' => $nama,
+          	'noktp' => $ktp,
+          	'nohp' => $nohp,
+          	'email' => $email                           
+        );
+        $tampung = $this->m_singgah->insert('booking',$data_insert);
+        if ($tampung>=1) {
+        	echo "<script>window.alert('Booking Telah Berhasil, Silahkan Cek Email dan Kami akan memberitahukanmu melalui SMS atau Email untuk Proses Booking');</script>";
+            redirect('welcome', 'refresh');
+        } else {
+            $this->load->view('welcome/booking/$rumah');
+        }
+    }
 }

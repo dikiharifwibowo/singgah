@@ -58,6 +58,11 @@
                                 <a href="<?php echo site_url('user/add'); ?>">
                                     <span>Add rumah singgah</span>
                                 </a>
+                            </li> 
+                            <li>
+                                <a href="<?php echo site_url('user/lihatbooking'); ?>">
+                                    <span>Daftar Booking</span>
+                                </a>
                             </li>   
                         </ul>
                     </li>

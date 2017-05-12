@@ -9,7 +9,7 @@
     <!--Content-->
     <div class="container">
     <h2 align="center">
-        <?php echo $details->nama; ?>
+         <?php echo $details->nama; ?>
     </h2>
     <h4 align="center"><i class="large material-icons">location_on</i><?php echo $details->alamat;?></h4>
     <br>
@@ -48,6 +48,7 @@
                                 "Data dan syarat bisa berubah sewaktu-waktu"
                             </p>
                             
+                            <br><a href="<?php echo site_url("welcome/booking/$details->id"); ?>" class="btn btn-info">BOOKING RUMAH SINGGAH</a>
                             <br><a href="<?php echo site_url("welcome/detail/"); ?>" class="btn btn-info">SHARE FACEBOOK</a>
                         </div>
                     </div>
