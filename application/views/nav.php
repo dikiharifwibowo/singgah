@@ -10,7 +10,7 @@
 
             <a class="navbar-brand" href="<?php echo site_url('welcome'); ?>">
 
-                <strong>Rumah Singgah</strong>
+                <strong><img style="width: 80px; height: 30px;" src="<?php echo site_url('assets/img/singgah.png'); ?>"></strong>
 
             </a>
 

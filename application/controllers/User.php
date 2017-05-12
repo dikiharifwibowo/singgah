@@ -663,4 +663,22 @@ class User extends CI_Controller {
         $this->load->view('admin/footer','refresh');
     }
    
+     public function sms($id) {
+        $this->data['data'] = $this->m_singgah->getbooking($id);
+        $this->load->view('admin/header','refresh');
+        $this->load->view('admin/nav','refresh');
+        $this->load->view('admin/sidebar','refresh');
+        $this->load->view('admin/rumah/sms',$this->data,'refresh');
+        $this->load->view('admin/footer','refresh'); 
+    }
+
+    public function dosms() {
+        $this->load->library('Minta');
+        $nohp = $_POST['nohp'];
+        $pesan = $_POST['pesan'];
+        echo "<script>window.alert('SMS Berhasil Terkirim!!!');</script>";
+            $response = Requests::post("https://reguler.zenziva.net/apps/smsapi.php?userkey=inyq2l&passkey=dikiharif&nohp={$nohp}&pesan={$pesan}");
+            var_dump($response->body);
+            redirect('user/lihatbooking', 'refresh');
+    }
 }

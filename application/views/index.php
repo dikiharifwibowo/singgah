@@ -7,73 +7,9 @@
 
     <div class="container">
 
-    <h2 align="center">Rekomendasi Rumah Singgah</h2>
+    <h2 align="center">Cari Rumah Singgah di Kotamu</h2>
     <p class="card-text" align="center" style="color: #5bc0de;"><strong> Temukan Rumah Singgah untuk pengobatanmu</strong></p>
-    <br> 
-
-        <div class="row">
-
-           <?php foreach ($rec_rumah as $data): ?>
-
-            <!--Second columnn-->
-
-            <div class="col-lg-3">
-
-                <!--Card-->
-
-                <div class="card">
-
-             
-
-                    <!--Card image-->
-
-                    <div class="view overlay hm-white-slight">
-
-                        <img style="width: 260px; height: 200px;" src="<?php echo site_url("assets/img/rumah/{$data['foto']}"); ?>" class="img-fluid" alt="">
-
-                        <a href="#">
-
-                            <div class="mask"></div>
-
-                        </a>
-
-                    </div>
-
-                    <!--/.Card image-->
-
-
-
-                    <!--Card content-->
-
-                    <div class="card-block" style="height: 185px;">
-
-                        <!--Title-->
-
-                        <h6 class="card-title"><strong><b> <?php echo $data['nama']; ?></b></strong></h6>
-
-                        <!--Text-->
-
-                        <p class="card-text"><?php echo substr($data['alamat'],0,50);  ?></p>
-
-                        <a href="<?php echo site_url("welcome/detail/{$data['id']}"); ?>" class="btn btn-info">SINGGAH</a>
-
-                    </div>
-
-                    <!--/.Card content-->
-
-               
-
-                </div>
-
-                <!--/.Card-->
-
-            </div>
-
-             <?php endforeach ?>
-
-        </div>
-
-
+    <br>            
 
         <div class="row">
 

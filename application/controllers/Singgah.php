@@ -215,6 +215,5 @@ class Singgah extends CI_Controller {
             $this->load->view('admin/500');
         }
     }
-
     
 }   

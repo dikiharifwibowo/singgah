@@ -47,7 +47,7 @@
                                         <td><?php echo $data['nohp'] ?></td>
                                         <td><?php echo $data['tglbooking'] ?></td>
                                         <td>
-                                           <a href="<?php echo site_url("singgah/sms/{$data['id']}") ?>" class="waves-effect"><i class="material-icons col-light-blue">message</i></a>
+                                           <a href="<?php echo site_url("user/sms/{$data['id']}") ?>" class="waves-effect"><i class="material-icons col-light-blue">message</i></a>
                                        </td>
                                     </tr>
                                 <?php

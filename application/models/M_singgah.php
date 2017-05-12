@@ -99,4 +99,11 @@ class M_Singgah extends CI_Model {
 		return $tampung->row(); 
     }
 
+    public function getbooking($id) {
+    	$this->db->select('*');
+		$this->db->from('booking');
+		$this->db->where('id', $id);
+		$tampung = $this->db->get();
+		return $tampung->row(); 
+    }
 }
