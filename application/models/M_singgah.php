@@ -89,4 +89,14 @@ class M_Singgah extends CI_Model {
 		$query = $this->db->get();
 		return $query->result_array(); 
     }
+
+    public function editrumah($id) {
+    	$this->db->select('rumah.*, users.phone');
+		$this->db->from('rumah');
+		$this->db->where('rumah.id', $id);
+		$this->db->join('users','users.id = rumah.user','right');
+		$tampung = $this->db->get();
+		return $tampung->row(); 
+    }
+
 }

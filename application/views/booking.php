@@ -17,11 +17,9 @@
                         <div class="col-lg-6" style=" margin: 0 auto;">
                         <p align="center" class="card-text" style="margin: 9px; ">
                             <form action="<?php echo site_url('welcome/doaddbooking'); ?>" method="POST" enctype="multipart/form-data">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="hidden"  readonly class="form-control" name="rumah" required placeholder="" value="<?php echo $id ?>">
-                                    </div>
-                                </div>
+
+                                <input type="hidden"  readonly class="form-control" name="rumah" required placeholder="" value="<?php echo $data->id; ?>">
+                                <input type="hidden" class="form-control" name="phone" required value="<?php echo $data->phone; ?>">
                                 <div class="form-group form-float">
                                     <p><I><strong> Masukkan Nama </strong></I></p>
                                     <div class="form-line">
