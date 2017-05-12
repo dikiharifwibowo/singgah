@@ -14,7 +14,7 @@
                 <!--Card-->
                 <div class="card">
                     <!--Card image-->
-                    <div class="row">
+                    <div class="row" style="margin: 10px;">
                         <div class="col-lg-7">
                         <p class="card-text" style="margin: 9px;">
                            <img style="width: 100%; height: 300px;" src="<?php echo site_url("assets/img/artikel/$datas->foto"); ?>" class="img-fluid" alt=""> 
@@ -65,3 +65,4 @@ s.setAttribute('data-timestamp', +new Date());
     <!--Footer-->
     </div>
 
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5915f433cc332e0012ea6ae9&product=sticky-share-buttons"></script>

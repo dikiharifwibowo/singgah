@@ -32,9 +32,9 @@
 
                             <p align="center" style="margin: 9px; ">
 
-                            <form action="<?php echo site_url('#'); ?>" method="POST" enctype="multipart/form-data">                          
+                            <form action="<?php echo site_url('welcome/filterartikel'); ?>" method="POST" enctype="multipart/form-data">                          
 
-                                  <input type="text" name="jumlah" class="form-control" required placeholder="Search here" style="white-space: nowrap;">
+                                  <input type="text" name="search" class="form-control" required placeholder="Search here" style="white-space: nowrap;">
 
                             </form>
 
@@ -110,7 +110,7 @@
 
                         <!--Title-->
 
-                        <h4 class="card-title"><?php echo $key->judul?></h4>
+                        <h4 class="card-title"><?php echo  substr(strip_tags($key->judul),0,50)?></h4>
 
                         <!--Text-->
 

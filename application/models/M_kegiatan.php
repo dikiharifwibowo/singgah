@@ -113,4 +113,11 @@ class M_Kegiatan extends CI_Model {
 		return $this->db->get('kegiatan')->num_rows();
 	}
 
+	public function users() {
+		$this->db->select('users.email');
+		$this->db->from('users');
+		$query = $this->db->get();
+		return $query->result_array();  
+	}
+
 }

@@ -168,6 +168,17 @@ class Kegiatan extends CI_Controller {
     }
 
     public function acc($id) {
+        $this->load->library('Minta');
+        // $data = $this->m_kegiatan->users();
+        $auth = ['auth' => array('api', 'key-3f1a21ca259edfe8b2cc969707e559d5')];
+        $data = [
+            'from' => 'Excited User <dikiharifwibowo@gmail.com>',
+            'to' => 'dikih.wibowo@students.amikom.ac.id',
+            'subject' => 'Kegiatan Baru',
+            'text' => 'Telah ada kegiatan baru untuk penderita kanker, kunjungi singgah.sourcetika.com',
+        ];
+        $response = Requests::post('https://api.mailgun.net/v3/singgah.sourcetika.com/messages', [], $data, $auth);
+        
         $status = 'terima';
         $data_update = array (
             'id' => $id,  

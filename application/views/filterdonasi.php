@@ -54,10 +54,10 @@
                     </div>
                     <!--/.Card image-->
                     <!--Card content-->
-                    <div class="card-block" style="height: 185px;">
+                    <div class="card-block" style="height: 210px;">
                         <!--Text-->
-                        <h6 class="card-title"><strong><b> <?php echo $data->judul; ?></b></strong></h6>
-                        <p class="card-text"><?php echo substr($data->deskripsi,0,50);  ?></p>
+                        <h6 class="card-title"><strong><b> <?php echo  substr(strip_tags($data->judul),0,50); ?></b></strong></h6>
+                        <p class="card-text"><?php echo  substr(strip_tags($data->deskripsi),0,100);  ?></p>
 
                         <a href="<?php echo site_url("welcome/donasidet/$data->id"); ?>" class="btn btn-info">DONASI</a>
 
