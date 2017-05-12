@@ -68,9 +68,10 @@ class M_artikel extends CI_Model {
 	} 
 
 	public function detail($wher="") {
-		$this->db->select('*');
+		$this->db->select('berita.*, users.first_name, users.last_name, ');
 		$this->db->from('berita');
-		$this->db->where('id', $wher);
+		$this->db->where('berita.id', $wher);
+		$this->db->join('users','users.id = berita.users','left');
 		$query = $this->db->get();
 		return $query->row(); 
 	}
@@ -139,8 +140,9 @@ class M_artikel extends CI_Model {
 		return $query->result_array();           	
 	}
 
-	function filterdn($number,$offset){
+	function filterar($number,$offset,$search=""){
 		$this->db->where('status ', 'terima');
+		$this->db->like('judul',$search);
 		return $query = $this->db->get('berita',$number,$offset)->result();		
 	}
  

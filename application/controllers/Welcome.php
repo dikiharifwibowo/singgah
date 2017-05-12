@@ -7,6 +7,7 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('m_rumah');
+		$this->load->model('m_artikel');
 		$this->load->model('m_singgah');
 		$this->load->model('m_donasi');
 		$this->load->model('m_kegiatan');
@@ -77,21 +78,33 @@ class Welcome extends CI_Controller {
 	}
 
 	public function filterdonasi() {
+		if (empty($_POST)) {
+			$search = "";
+		} else {
+			$search = $_POST['search'];
+		}
+
 		$jumlah_data = $this->m_donasi->jumlah_data();
 		$this->load->library('pagination');
 		$config['base_url'] = site_url().'/welcome/filterdonasi/';
 		$config['total_rows'] = $jumlah_data;
-		$config['per_page'] = 1;
+		$config['per_page'] = 8;
 		$from = $this->uri->segment(3);
 		$this->pagination->initialize($config);		
 
-		$data['filter'] = $this->m_donasi->filterdn($config['per_page'],$from);
+		$data['filter'] = $this->m_donasi->filterdn($config['per_page'],$from,$search);
 		$this->load->view('header');	
 		$this->load->view('filterdonasi',$data,'refresh');	
 		$this->load->view('footer');
 	}
 
 	public function filterkegiatan() {
+		if (empty($_POST)) {
+			$search = "";
+		} else {
+			$search = $_POST['search'];
+		}
+
 		$jumlah_data = $this->m_kegiatan->jumlah_data();
 		$this->load->library('pagination');
 		$config['base_url'] = site_url().'/welcome/filterkegiatan/';
@@ -100,10 +113,37 @@ class Welcome extends CI_Controller {
 		$from = $this->uri->segment(3);
 		$this->pagination->initialize($config);		
 
-		$data['filter'] = $this->m_kegiatan->filterkg($config['per_page'],$from);
+		$data['filter'] = $this->m_kegiatan->filterkg($config['per_page'],$from,$search);
 		$this->load->view('header');	
 		$this->load->view('filterkegiatan',$data,'refresh');	
 		$this->load->view('footer');
 	}
 
+	public function filterartikel() {
+		if (empty($_POST)) {
+			$search = "";
+		} else {
+			$search = $_POST['search'];
+		}
+
+		$jumlah_data = $this->m_artikel->jumlah_data();
+		$this->load->library('pagination');
+		$config['base_url'] = site_url().'/welcome/filterartikel/';
+		$config['total_rows'] = $jumlah_data;
+		$config['per_page'] = 8;
+		$from = $this->uri->segment(3);
+		$this->pagination->initialize($config);		
+
+		$data['filter'] = $this->m_artikel->filterar($config['per_page'],$from,$search);
+		$this->load->view('header');	
+		$this->load->view('filterartikel',$data,'refresh');	
+		$this->load->view('footer');
+	}
+
+	public function artikel($id) {
+		$this->data['datas'] = $this->m_artikel->detail($id);
+		$this->load->view('header');	
+		$this->load->view('detailartikel',$this->data,'refresh');	
+		$this->load->view('footer');
+	}
 }

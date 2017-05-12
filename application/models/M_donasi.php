@@ -139,8 +139,9 @@ class M_donasi extends CI_Model {
 		return $query->result_array();           	
 	}
 
-	function filterdn($number,$offset){
+	function filterdn($number,$offset,$search=""){
 		$this->db->where('status ', 'terima');
+		$this->db->like('judul',$search);
 		return $query = $this->db->get('donasi',$number,$offset)->result();		
 	}
  

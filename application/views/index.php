@@ -49,7 +49,7 @@
 
                         <!--Title-->
 
-                        <h6 class="card-title"><?php echo $data['nama']; ?></h6>
+                        <h6 class="card-title"><strong><b> <?php echo $data['nama']; ?></b></strong></h6>
 
                         <!--Text-->
 
@@ -227,7 +227,7 @@
                     <!--Card content-->
                     <div class="card-block" style="height: 185px;">
                         <!--Text-->
-
+                        <h6 class="card-title"><strong><b> <?php echo $data['judul']; ?></b></strong></h6>
                         <p class="card-text"><?php echo substr($data['deskripsi'],0,50);  ?></p>
 
                         <a href="<?php echo site_url("welcome/donasidet/{$data['id']}"); ?>" class="btn btn-info">DONASI</a>
@@ -268,7 +268,7 @@
 
                         <!--Title-->
 
-                        <h6 class="card-title"><?php echo $data['judul']; ?></h6>
+                       <h6 class="card-title"><strong><b> <?php echo $data['judul']; ?></b></strong></h6>
 
                         <!--Text-->
 

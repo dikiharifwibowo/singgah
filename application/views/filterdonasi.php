@@ -5,7 +5,7 @@
 <br>
     <!--Content-->
     <div class="container">
-    <h4 align="center">GALANG-GO</h4>
+    <h4 align="center"><i class="material-icons">attach_money</i>  GALANG-GO</h4>
     <br> 
         <div class="row">
             <!--Second columnn-->
@@ -15,8 +15,8 @@
                     <div class="row" >
                         <div class="col-lg-6" style=" margin: 0 auto;">
                             <p align="center" style="margin: 9px; ">
-                            <form action="<?php echo site_url('#'); ?>" method="POST" enctype="multipart/form-data">                          
-                                  <input type="text" name="jumlah" class="form-control" required placeholder="Search here" style="white-space: nowrap;">
+                            <form action="<?php echo site_url("welcome/filterdonasi/"); ?>" method="POST" enctype="multipart/form-data">                          
+                                  <input type="text" name="search" class="form-control" required placeholder="Search here" style="white-space: nowrap;">
                             </form>
                             </p>
                         </div>                        
@@ -56,7 +56,7 @@
                     <!--Card content-->
                     <div class="card-block" style="height: 185px;">
                         <!--Text-->
-
+                        <h6 class="card-title"><strong><b> <?php echo $data->judul; ?></b></strong></h6>
                         <p class="card-text"><?php echo substr($data->deskripsi,0,50);  ?></p>
 
                         <a href="<?php echo site_url("welcome/donasidet/$data->id"); ?>" class="btn btn-info">DONASI</a>
@@ -76,3 +76,4 @@
         </ul>        
     </div>
     <!--Footer-->
+    

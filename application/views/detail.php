@@ -47,6 +47,8 @@
                             <p align="center">
                                 "Data dan syarat bisa berubah sewaktu-waktu"
                             </p>
+                            
+                            <br><a href="<?php echo site_url("welcome/detail/"); ?>" class="btn btn-info">SHARE FACEBOOK</a>
                         </div>
                     </div>
                     <!--/.Card image-->

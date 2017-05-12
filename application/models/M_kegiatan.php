@@ -102,8 +102,9 @@ class M_Kegiatan extends CI_Model {
 		return $query->result_array();           	
 	}
 
-	function filterkg($number,$offset){
+	function filterkg($number,$offset,$search=""){
 		$this->db->where('status ', 'terima');
+		$this->db->like('judul',$search);
 		return $query = $this->db->get('kegiatan',$number,$offset)->result();		
 	}
  

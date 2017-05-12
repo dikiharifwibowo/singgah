@@ -73,8 +73,8 @@ class Donasi extends CI_Controller {
         );
         $tampung = $this->m_donasi->insert('donasi',$data_insert); //ingat prinsip insert/adddata
         if ($tampung>=1) {
-            move_uploaded_file($_FILES['foto']['tmp_name'], "singgah/assets/img/donasi/".$_FILES['foto']['name']);
-            redirect('donasi', 'refresh');   
+            redirect('donasi', 'refresh');
+            move_uploaded_file($_FILES['foto']['tmp_name'], "singgah/assets/img/donasi/".$_FILES['foto']['name']);   
         } else {
             $this->load->view('admin/500');
         }
@@ -152,7 +152,7 @@ class Donasi extends CI_Controller {
         $tampung = $this->m_donasi->update('donasi',$data_update,$where); //ingat prinsip insert/adddata
         if ($tampung>=1) {
             redirect('donasi', 'refresh');
-             move_uploaded_file($_FILES['foto']['tmp_name'], "singgah/assets/img/donasi/".$_FILES['foto']['name']);
+            move_uploaded_file($_FILES['foto']['tmp_name'], "singgah/assets/img/donasi/".$_FILES['foto']['name']);
         } else {
             $this->load->view('admin/500');
         }
